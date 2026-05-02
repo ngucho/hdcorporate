@@ -15,21 +15,29 @@ type Props = {
   calLink: string
 }
 
+/**
+ * Largeur plafonnée pour limiter la double colonne « jour » côté Cal ; 720px reste en général
+ * raisonnable avant ce basculement (à ajuster si besoin).
+ */
+const BOOKER_MAX_CLASS = 'max-w-[min(100%,720px)]'
+
 export function CalcomEmbed({ calLink }: Props) {
   return (
     <div className="w-full overflow-x-auto overflow-y-visible [-webkit-overflow-scrolling:touch]">
-      <Cal
-        calLink={calLink}
-        className="main cal-booking-embed w-full min-w-[min(100%,620px)] rounded-xl bg-white p-1 shadow-lg ring-1 ring-hd-green/10 sm:min-w-[680px] lg:min-w-[800px]"
-        config={{
-          theme: 'light',
-          layout: 'column_view',
-        }}
-        style={{
-          width: '100%',
-          minHeight: 'clamp(580px, 70vh, 920px)',
-        }}
-      />
+      <div className={`mx-auto w-full min-w-0 ${BOOKER_MAX_CLASS}`}>
+        <Cal
+          calLink={calLink}
+          className="main cal-booking-embed w-full min-w-0 rounded-xl bg-white p-1 shadow-lg ring-1 ring-hd-green/10"
+          config={{
+            theme: 'light',
+            layout: 'column_view',
+          }}
+          style={{
+            width: '100%',
+            minHeight: 'clamp(520px, 62vh, 860px)',
+          }}
+        />
+      </div>
     </div>
   )
 }

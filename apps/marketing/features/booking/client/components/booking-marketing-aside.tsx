@@ -41,11 +41,11 @@ export function BookingMarketingAside({ intentLabel }: Props) {
       <div className="border-t border-hd-green/10 pt-8 mb-8">
         <div className="flex flex-col sm:flex-row gap-6">
           <a
-            href="mailto:hamidoudiallo.fusac@gmail.com"
+            href="mailto: contact.hdcorporate@gmail.com"
             className="flex items-center gap-3 text-sm text-hd-green/70 hover:text-hd-green transition-colors"
           >
             <Mail className="w-4 h-4" />
-            hamidoudiallo.fusac@gmail.com
+             contact.hdcorporate@gmail.com
           </a>
           <a
             href="tel:+33767376622"

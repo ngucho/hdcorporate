@@ -8,6 +8,16 @@ Le marketing affiche **uniquement** l’embed Cal.com. L’API reçoit les **web
 2. **Google Calendar** + **Google Meet** sur le type d’événement.
 3. Noter le lien public `https://cal.com/<username>/<slug>` → utiliser **`username/slug`** dans `NEXT_PUBLIC_CALCOM_CAL_LINK`.
 
+### Affichage des créneaux (jour sélectionné + grille)
+
+L’iframe Cal.com **pilote l’UI** (mois, semaine, colonnes, grille des horaires). Le site ne peut pas reprogrammer l’intérieur de l’iframe pour n’afficher « que ce jour » : cela se règle **dans Cal.com** sur le type d’événement.
+
+1. **Event type** concerné → onglets **Availability** / **Limits** (libellés selon version) : durée du rendez-vous, **intervalle des créneaux** (ex. 30 min), buffers — cela regroupe les heures affichées pour le jour choisi.
+2. **Appearance** / **Booking questions** (ou **Advanced**) : disposition du booker (**Column** / côte à côte calendrier + créneaux) alignée avec l’embed marketing qui envoie déjà `layout: column_view` (`column_view` côté SDK).
+3. Après sélection d’une date, le panneau de créneaux est piloté par Cal : en **grande largeur**, le booker peut afficher **deux jours côte à côte** (deux colonnes). L’embed marketing borne la largeur du widget (**`max-w` ~720px**, centré) et **supprime les `min-width` agressifs** pour limiter ce cas. Si tu vois encore deux jours, baisse la valeur dans `calcom-embed.tsx` ou teste **`month_view`** à la place de `column_view`.
+
+Si le rendu ne suffit pas, la voie officielle est d’ouvrir une **demande de fonctionnalité** côté Cal.com ou d’utiliser leur **Booker** programmatique (atoms) dans un autre front, hors embed script actuel.
+
 ## 2. Webhook (HTTPS obligatoire sur Cal SaaS)
 
 1. Cal.com → **Settings → Developer → Webhooks**.

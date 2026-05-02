@@ -43,7 +43,7 @@ const keyInfo = [
   },
   {
     title: 'Fiscalité transparente pour les non-résidents',
-    desc: 'Une LLC est par défaut une entité "transparente" fiscalement. Les non-résidents US qui n\'ont pas d\'activité commerciale aux USA ne sont généralement pas imposés aux États-Unis (à confirmer avec votre comptable).',
+    desc: 'Une LLC est par défaut une entité "transparente" fiscalement. Les non-résidents US qui n\'ont pas d\'activité commerciale aux USA ne sont généralement pas imposés aux États-Unis',
   },
   {
     title: 'Ouvrir Stripe depuis la France',
