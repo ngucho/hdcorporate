@@ -1,0 +1,9 @@
+@import '@fondatis/design-system/styles';
+
+@source "./**/*.{tsx,ts}";
+
+/* Backoffice: surfaces (complément au thème dark Fondatis) */
+:root {
+  --panel: #1a222d;
+  --bo-muted: #8b949e;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "hd-corporate",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "db:generate": "pnpm --filter @hd-corporate/db generate",
+    "db:migrate": "pnpm --filter @hd-corporate/db migrate",
+    "db:studio": "pnpm --filter @hd-corporate/db studio",
+    "storybook": "pnpm --filter @fondatis/design-system storybook"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "typescript": "5.7.3"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.14",
+      "@types/react-dom": "19.2.3"
+    }
+  }
+}

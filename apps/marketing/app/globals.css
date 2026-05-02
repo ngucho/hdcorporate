@@ -1,0 +1,242 @@
+@import '@fondatis/design-system/styles';
+
+@source "./**/*.{tsx,ts}";
+@source "../components/**/*.{tsx,ts}";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* HD Corporate Brand Colors */
+  --hd-green: #0B3D2E;
+  --hd-gold: #C8922A;
+  --hd-cream: #FAF7F0;
+  --hd-cream-dark: #F0EBE0;
+  --hd-white: #FFFFFF;
+  
+  /* Semantic tokens */
+  --background: #FAF7F0;
+  --foreground: #0B3D2E;
+  --card: #FFFFFF;
+  --card-foreground: #0B3D2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B3D2E;
+  --primary: #0B3D2E;
+  --primary-foreground: #FAF7F0;
+  --secondary: #F0EBE0;
+  --secondary-foreground: #0B3D2E;
+  --muted: #F0EBE0;
+  --muted-foreground: rgba(11, 61, 46, 0.65);
+  --accent: #C8922A;
+  --accent-foreground: #0B3D2E;
+  --destructive: #dc2626;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(11, 61, 46, 0.15);
+  --input: rgba(11, 61, 46, 0.15);
+  --ring: #C8922A;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom HD colors for Tailwind */
+  --color-hd-green: #0B3D2E;
+  --color-hd-gold: #C8922A;
+  --color-hd-cream: #FAF7F0;
+  --color-hd-cream-dark: #F0EBE0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-hd-cream text-hd-green;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom cursor styles */
+.cursor-dot {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--hd-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--hd-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}
+
+/* Progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--hd-gold);
+  z-index: 9997;
+  transition: width 0.1s ease-out;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger children */
+.stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Pulsing dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Subtle geometric pattern */
+.pattern-lines {
+  background-image: 
+    linear-gradient(45deg, rgba(200, 146, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(200, 146, 42, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Accordion animation */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Toast notification */
+@keyframes toast-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast {
+  animation: toast-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Line progress animation */
+@keyframes line-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Mobile menu overlay */
+@keyframes slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.mobile-menu-open {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+/* Slide down animation */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slide-down 0.3s ease-out forwards;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@hd-corporate/backoffice",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node ../../scripts/run-next-dev.mjs backoffice",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^4.13.2",
+    "@fondatis/design-system": "workspace:*",
+    "@hd-corporate/db": "workspace:*",
+    "next": "16.2.4",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.2.0",
+    "typescript": "5.7.3"
+  }
+}

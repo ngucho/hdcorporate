@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --filter @fondatis/design-system run lint)",
+      "Bash(pnpm --filter marketing exec tsc --noEmit)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
