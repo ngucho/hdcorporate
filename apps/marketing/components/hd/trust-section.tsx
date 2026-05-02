@@ -97,7 +97,7 @@ export function TrustSection() {
       ref={sectionRef}
       className="bg-hd-green pattern-lines py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <h2 className="reveal font-serif text-3xl md:text-4xl lg:text-5xl font-light text-white mb-16" style={{ transitionDelay: '0.1s' }}>
           Ils nous font <em className="italic text-hd-gold">confiance</em>

@@ -45,7 +45,7 @@ export function AboutSection() {
       ref={sectionRef}
       className="bg-hd-cream-dark py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,300px)_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[minmax(0,340px)_minmax(0,1fr)]">
           {/* Portrait : public/images/hamidou-photo-profil.jpg */}
           <div className="reveal-left mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none" style={{ transitionDelay: '0.2s' }}>

@@ -14,7 +14,7 @@ L’iframe Cal.com **pilote l’UI** (mois, semaine, colonnes, grille des horair
 
 1. **Event type** concerné → onglets **Availability** / **Limits** (libellés selon version) : durée du rendez-vous, **intervalle des créneaux** (ex. 30 min), buffers — cela regroupe les heures affichées pour le jour choisi.
 2. **Appearance** / **Booking questions** (ou **Advanced**) : disposition du booker (**Column** / côte à côte calendrier + créneaux) alignée avec l’embed marketing qui envoie déjà `layout: column_view` (`column_view` côté SDK).
-3. Après sélection d’une date, le panneau de créneaux est piloté par Cal : en **grande largeur**, le booker peut afficher **deux jours côte à côte** (deux colonnes). L’embed marketing borne la largeur du widget (**`max-w` ~720px**, centré) et **supprime les `min-width` agressifs** pour limiter ce cas. Si tu vois encore deux jours, baisse la valeur dans `calcom-embed.tsx` ou teste **`month_view`** à la place de `column_view`.
+3. **Calendrier à gauche, horaires à droite** : en dessous d’environ **800px** de largeur iframe, Cal.com repasse souvent en **pile** (calendrier puis créneaux en bas). L’embed impose **`min-w-[800px]`** (avec **`overflow-x-auto`** sur le parent) pour garder la disposition colonne, et envoie **`useSlotsViewOnSmallScreen: 'false'`** lorsque le script Cal le prend en charge. **`max-w` ~880px** limite encore l’affichage **deux jours** côte à côte dans le panneau créneaux ; ajuste min/max dans `calcom-embed.tsx` selon ton compromis. Tu peux aussi tester **`month_view`** à la place de `column_view`.
 
 Si le rendu ne suffit pas, la voie officielle est d’ouvrir une **demande de fonctionnalité** côté Cal.com ou d’utiliser leur **Booker** programmatique (atoms) dans un autre front, hors embed script actuel.
 

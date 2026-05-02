@@ -80,6 +80,7 @@
   
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 }
 
@@ -154,6 +155,53 @@
 .reveal-right.visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    transform: none;
+    transition-delay: 0s !important;
+    transition-duration: 0.15s;
+    transition-property: opacity;
+  }
+
+  .pulse-dot {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .accordion-content {
+    transition-duration: 0.01ms;
+  }
+
+  .mobile-menu-open {
+    animation: none;
+  }
+
+  .scroll-progress {
+    transition: none;
+  }
+
+  .cursor-dot {
+    transition: none;
+  }
+
+  .toast {
+    animation: none;
+  }
+
+  .slide-down {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Stagger children */

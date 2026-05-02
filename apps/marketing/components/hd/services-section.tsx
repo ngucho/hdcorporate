@@ -69,7 +69,7 @@ export function ServicesSection({ services }: { services: PublicService[] }) {
       ref={sectionRef}
       className="bg-hd-green pattern-lines py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
           <h2
             className="reveal font-serif text-3xl md:text-4xl lg:text-5xl font-light text-white"

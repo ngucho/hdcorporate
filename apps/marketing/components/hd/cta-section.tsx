@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { scrollToId } from '@/lib/scroll-to-id'
 
 export function CTASection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -25,19 +26,12 @@ export function CTASection() {
     return () => observer.disconnect()
   }, [])
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <section
       ref={sectionRef}
       className="bg-hd-cream-dark py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         {/* Decorative line */}
         <div className="reveal flex items-center justify-center gap-4 mb-8" style={{ transitionDelay: '0.1s' }}>
           <div className="w-12 h-px bg-hd-green/20" />
@@ -56,16 +50,18 @@ export function CTASection() {
         </p>
 
         {/* CTAs */}
-        <div className="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style={{ transitionDelay: '0.4s' }}>
+        <div className="reveal flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ transitionDelay: '0.4s' }}>
           <button
-            onClick={() => scrollToSection('booking')}
-            className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors"
+            type="button"
+            onClick={() => scrollToId('booking')}
+            className="inline-flex min-h-11 w-full items-center justify-center rounded bg-hd-green px-8 py-3 font-medium text-white transition-colors hover:bg-hd-green/90 sm:w-auto"
           >
             Réserver mon appel gratuit
           </button>
           <button
-            onClick={() => scrollToSection('services')}
-            className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors"
+            type="button"
+            onClick={() => scrollToId('services')}
+            className="inline-flex min-h-11 w-full items-center justify-center rounded border-2 border-hd-green px-8 py-3 font-medium text-hd-green transition-colors hover:bg-hd-green hover:text-white sm:w-auto"
           >
             Créer ma société 299€
           </button>

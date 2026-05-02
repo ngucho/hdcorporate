@@ -1,10 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
+import { scrollToId as scrollToIdSmooth } from '@/lib/scroll-to-id'
 
-function scrollToId(id: string) {
+function scrollToHashTarget(id: string) {
   if (!id) return
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  scrollToIdSmooth(id, 'start')
 }
 
 /** Après navigation vers `/#booking` ou `/#services`, assure le scroll (contenu dynamique / Cal). */
@@ -14,10 +15,10 @@ export function HomeHashScroll() {
     const id = window.location.hash.replace(/^#/, '')
     if (!id || (id !== 'booking' && id !== 'services')) return
 
-    scrollToId(id)
-    const a = window.setTimeout(() => scrollToId(id), 150)
-    const b = window.setTimeout(() => scrollToId(id), 500)
-    const c = window.setTimeout(() => scrollToId(id), 1200)
+    scrollToHashTarget(id)
+    const a = window.setTimeout(() => scrollToHashTarget(id), 150)
+    const b = window.setTimeout(() => scrollToHashTarget(id), 500)
+    const c = window.setTimeout(() => scrollToHashTarget(id), 1200)
 
     return () => {
       window.clearTimeout(a)

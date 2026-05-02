@@ -64,7 +64,7 @@ export function FAQSection() {
       ref={sectionRef}
       className="bg-hd-cream py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sticky Title */}
           <div className="lg:col-span-4">
@@ -87,8 +87,9 @@ export function FAQSection() {
                 style={{ transitionDelay: `${0.3 + index * 0.05}s` }}
               >
                 <button
+                  type="button"
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between p-5 text-left hover:bg-hd-green/[0.02] transition-colors"
+                  className="flex min-h-12 w-full items-start justify-between gap-3 p-5 text-left transition-colors hover:bg-hd-green/[0.02] sm:items-center"
                 >
                   <span className="font-serif text-lg text-hd-green pr-4">
                     {faq.question}
