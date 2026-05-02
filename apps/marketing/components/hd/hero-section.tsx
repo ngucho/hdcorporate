@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { scrollToId } from '@/lib/scroll-to-id'
 
 const COLLAGE = [
   {
@@ -48,20 +49,13 @@ export function HeroSection() {
     return () => observer.disconnect()
   }, [])
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <section
       id="hero"
       ref={sectionRef}
       className="relative min-h-screen bg-hd-green pattern-lines overflow-hidden"
     >
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 pt-28 pb-24 lg:pt-32 lg:pb-10 min-h-screen flex flex-col lg:grid lg:grid-cols-12 lg:min-h-[100svh] lg:items-stretch lg:gap-x-10 xl:gap-x-14">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-20 pt-[max(7rem,calc(5rem+env(safe-area-inset-top)+1.25rem))] sm:px-6 sm:pb-24 lg:grid lg:min-h-[100svh] lg:grid-cols-12 lg:items-stretch lg:gap-x-10 lg:px-8 lg:pb-10 lg:pt-[max(8rem,calc(5rem+env(safe-area-inset-top)+2rem))] xl:gap-x-14">
         {/* Colonne texte */}
         <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center z-40 lg:pt-6 xl:pt-10">
           <div className="reveal flex items-center gap-2 mb-8" style={{ transitionDelay: '0.3s' }}>
@@ -72,7 +66,7 @@ export function HeroSection() {
           </div>
 
           <h1
-            className="reveal font-serif text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light text-white leading-tight mb-8"
+            className="reveal font-serif text-3xl leading-[1.15] sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light text-white mb-8"
             style={{ transitionDelay: '0.5s' }}
           >
             Lancez votre entreprise{' '}
@@ -90,15 +84,15 @@ export function HeroSection() {
           <div className="reveal flex flex-col sm:flex-row gap-4 mb-14 lg:mb-16" style={{ transitionDelay: '1s' }}>
             <button
               type="button"
-              onClick={() => scrollToSection('services')}
-              className="bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors w-fit"
+              onClick={() => scrollToId('services')}
+              className="inline-flex min-h-11 w-full items-center justify-center rounded bg-hd-gold px-8 py-3 text-sm font-medium text-hd-green transition-colors hover:bg-hd-gold/90 sm:w-auto"
             >
               Créer ma société dès 299€
             </button>
             <button
               type="button"
-              onClick={() => scrollToSection('booking')}
-              className="flex items-center gap-2 text-white text-sm font-medium hover:text-hd-gold transition-colors group w-fit"
+              onClick={() => scrollToId('booking')}
+              className="group inline-flex min-h-11 w-full items-center justify-center gap-2 rounded px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5 hover:text-hd-gold sm:w-auto sm:justify-start sm:px-2"
             >
               Appel découverte gratuit
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -144,7 +138,7 @@ export function HeroSection() {
                     alt={item.alt}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 1024px) 45vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 33vw"
                     priority={i <= 1}
                   />
                   <div
@@ -160,7 +154,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="lg:hidden absolute bottom-10 left-6 flex items-center gap-4 text-white/50">
+        <div className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-4 flex items-center gap-4 text-white/50 sm:left-6 lg:hidden">
           <div className="w-10 h-px bg-white/30" />
           <span className="text-[10px] uppercase tracking-[0.2em]">Défiler</span>
         </div>

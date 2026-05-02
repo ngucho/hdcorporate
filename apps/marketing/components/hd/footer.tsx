@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { scrollToId } from '@/lib/scroll-to-id'
 
 export function Footer() {
   const pathname = usePathname()
@@ -9,10 +10,7 @@ export function Footer() {
 
   const handleSectionClick = (id: string) => {
     if (pathname === '/') {
-      const element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+      scrollToId(id)
     } else {
       router.push(`/#${id}`)
     }
@@ -20,7 +18,7 @@ export function Footer() {
 
   return (
     <footer className="bg-hd-green py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Logo & Tagline */}
           <div className="lg:col-span-1">
@@ -69,32 +67,36 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('about')}
-                  className="text-white/60 text-sm hover:text-hd-gold transition-colors"
+                  className="min-h-11 w-full rounded-sm py-2.5 text-left text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-hd-gold md:min-h-0 md:w-auto md:py-0 md:hover:bg-transparent"
                 >
                   À propos
                 </button>
               </li>
               <li>
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('process')}
-                  className="text-white/60 text-sm hover:text-hd-gold transition-colors"
+                  className="min-h-11 w-full rounded-sm py-2.5 text-left text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-hd-gold md:min-h-0 md:w-auto md:py-0 md:hover:bg-transparent"
                 >
                   Processus
                 </button>
               </li>
               <li>
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('faq')}
-                  className="text-white/60 text-sm hover:text-hd-gold transition-colors"
+                  className="min-h-11 w-full rounded-sm py-2.5 text-left text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-hd-gold md:min-h-0 md:w-auto md:py-0 md:hover:bg-transparent"
                 >
                   FAQ
                 </button>
               </li>
               <li>
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('booking')}
-                  className="text-white/60 text-sm hover:text-hd-gold transition-colors"
+                  className="min-h-11 w-full rounded-sm py-2.5 text-left text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-hd-gold md:min-h-0 md:w-auto md:py-0 md:hover:bg-transparent"
                 >
                   Réserver un appel
                 </button>
@@ -115,10 +117,10 @@ export function Footer() {
               <li>91000 Évry-Courcouronnes</li>
               <li className="pt-2">
                 <a
-                  href="mailto: contact.hdcorporate@gmail.com"
-                  className="hover:text-hd-gold transition-colors"
+                  href="mailto:contact.hdcorporate@gmail.com"
+                  className="break-words hover:text-hd-gold transition-colors"
                 >
-                   contact.hdcorporate@gmail.com
+                  contact.hdcorporate@gmail.com
                 </a>
               </li>
               <li>
@@ -134,8 +136,8 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <p className="text-white/40 text-xs text-center">
+        <div className="mt-16 border-t border-white/10 pt-8 pb-[env(safe-area-inset-bottom)]">
+          <p className="text-center text-xs text-white/40">
             © 2026 HD Corporate. Tous droits réservés. · Juriste indépendant, non avocat.
           </p>
         </div>

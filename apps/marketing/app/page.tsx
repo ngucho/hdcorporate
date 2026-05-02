@@ -19,7 +19,7 @@ export const revalidate = 300
 function ServicesSectionFallback() {
   return (
     <section className="border-t border-hd-green/10 bg-hd-cream py-20 lg:py-28" aria-hidden>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 h-8 w-48 animate-pulse rounded bg-hd-green/15" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map((i) => (
@@ -42,7 +42,7 @@ export default function HDCorporate() {
       <HomeChrome />
       <Navigation />
 
-      <main>
+      <main className="min-w-0">
         <HeroSection />
         <ProblemSection />
         <Suspense fallback={<ServicesSectionFallback />}>

@@ -65,7 +65,7 @@ export function ProcessSection() {
       ref={sectionRef}
       className="bg-hd-green pattern-lines py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-24">
           <h2 className="reveal font-serif text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4" style={{ transitionDelay: '0.1s' }}>

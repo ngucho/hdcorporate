@@ -72,10 +72,10 @@ const faqs = [
 
 export default function SecretariatJuridiqueePage() {
   return (
-    <div className="pt-20">
+    <div className="pt-[calc(5rem+env(safe-area-inset-top))]">
       {/* Breadcrumb */}
       <div className="bg-hd-green/5 border-b border-hd-green/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-hd-green/60 hover:text-hd-green transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Retour à l'accueil
@@ -85,7 +85,7 @@ export default function SecretariatJuridiqueePage() {
 
       {/* Hero */}
       <section className="bg-hd-green pattern-lines py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-6">
               La gestion juridique continue{' '}
@@ -112,7 +112,7 @@ export default function SecretariatJuridiqueePage() {
               <BookingCtaLink
                 serviceSlug="secretariat-annuel"
                 serviceTitle="Secrétariat annuel"
-                className="inline-flex items-center justify-center gap-2 bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded bg-hd-gold px-8 py-3 text-sm font-medium text-hd-green transition-colors hover:bg-hd-gold/90 sm:w-auto"
               >
                 Réserver un appel découverte
                 <ArrowRight className="w-4 h-4" />
@@ -124,7 +124,7 @@ export default function SecretariatJuridiqueePage() {
 
       {/* What's included */}
       <section className="py-20 lg:py-28 bg-hd-cream">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-sm text-hd-green/60 tracking-wide">— Ce qui est inclus</span>
@@ -159,7 +159,7 @@ export default function SecretariatJuridiqueePage() {
 
       {/* Why it matters */}
       <section className="py-20 lg:py-28 bg-hd-cream-dark">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="text-sm text-hd-green/60 tracking-wide">— Pourquoi c'est important</span>
           <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mt-4 mb-4 max-w-2xl">
             Des obligations légales que vous ne pouvez pas ignorer
@@ -184,7 +184,7 @@ export default function SecretariatJuridiqueePage() {
 
       {/* FAQ */}
       <section className="py-20 lg:py-28 bg-hd-cream">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mb-12 text-center">
               Questions fréquentes
@@ -219,13 +219,13 @@ export default function SecretariatJuridiqueePage() {
             <BookingCtaLink
               serviceSlug="secretariat-annuel"
               serviceTitle="Secrétariat annuel"
-              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors text-center"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded bg-hd-green px-8 py-3 text-center font-medium text-white transition-colors hover:bg-hd-green/90 sm:w-auto"
             >
               Réserver un appel gratuit
             </BookingCtaLink>
             <Link
               href="/#services"
-              className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors text-center"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded border-2 border-hd-green px-8 py-3 text-center font-medium text-hd-green transition-colors hover:bg-hd-green hover:text-white sm:w-auto"
             >
               Voir toutes les offres
             </Link>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { scrollToId } from '@/lib/scroll-to-id'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
 const serviceLinks = [
@@ -30,10 +31,7 @@ export function Navigation() {
 
   const handleSectionClick = (id: string) => {
     if (isHomePage) {
-      const element = document.getElementById(id)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+      scrollToId(id)
     } else {
       router.push(`/#${id}`)
     }
@@ -44,16 +42,16 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
           isScrolled
             ? 'bg-hd-green/96 backdrop-blur-xl shadow-lg'
             : 'bg-transparent'
         }`}
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-20 min-h-[5rem] items-center justify-between gap-3">
             {/* Logo */}
-            <Link href="/" className="flex items-baseline gap-1 group">
+            <Link href="/" className="flex shrink-0 items-baseline gap-1 group">
               <span className="font-serif text-2xl font-bold text-hd-gold">HD</span>
               <span className="font-sans text-lg font-light text-white">Corporate</span>
             </Link>
@@ -63,9 +61,10 @@ export function Navigation() {
               {/* Services dropdown */}
               <div className="relative">
                 <button
+                  type="button"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   onBlur={() => setTimeout(() => setIsServicesOpen(false), 150)}
-                  className="flex items-center gap-1 text-xs uppercase tracking-[0.2em] text-white/80 hover:text-hd-gold transition-colors"
+                  className="inline-flex min-h-11 items-center gap-1 rounded-sm px-1 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-hd-gold"
                 >
                   Services
                   <ChevronDown className={`w-3 h-3 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -84,8 +83,9 @@ export function Navigation() {
                     ))}
                     <div className="border-t border-white/10 mt-2 pt-2">
                       <button
+                        type="button"
                         onClick={() => handleSectionClick('services')}
-                        className="w-full text-left px-4 py-2 text-xs text-white/50 hover:text-hd-gold transition-colors"
+                        className="min-h-10 w-full px-4 py-2.5 text-left text-xs text-white/50 transition-colors hover:text-hd-gold"
                       >
                         Voir tous les tarifs →
                       </button>
@@ -95,20 +95,23 @@ export function Navigation() {
               </div>
 
               <button
+                type="button"
                 onClick={() => handleSectionClick('about')}
-                className="text-xs uppercase tracking-[0.2em] text-white/80 hover:text-hd-gold transition-colors"
+                className="inline-flex min-h-11 items-center rounded-sm px-1 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-hd-gold"
               >
                 À propos
               </button>
               <button
+                type="button"
                 onClick={() => handleSectionClick('process')}
-                className="text-xs uppercase tracking-[0.2em] text-white/80 hover:text-hd-gold transition-colors"
+                className="inline-flex min-h-11 items-center rounded-sm px-1 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-hd-gold"
               >
                 Processus
               </button>
               <button
+                type="button"
                 onClick={() => handleSectionClick('faq')}
-                className="text-xs uppercase tracking-[0.2em] text-white/80 hover:text-hd-gold transition-colors"
+                className="inline-flex min-h-11 items-center rounded-sm px-1 text-xs uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-hd-gold"
               >
                 FAQ
               </button>
@@ -117,8 +120,9 @@ export function Navigation() {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <button
+                type="button"
                 onClick={() => handleSectionClick('booking')}
-                className="bg-hd-gold text-hd-green px-6 py-3 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
+                className="inline-flex min-h-11 items-center justify-center rounded bg-hd-gold px-6 py-2.5 text-sm font-medium text-hd-green transition-colors hover:bg-hd-gold/90"
               >
                 Réserver un appel gratuit
               </button>
@@ -126,10 +130,12 @@ export function Navigation() {
 
             {/* Mobile Menu Button */}
             <button
+              type="button"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden text-white p-2"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-white lg:hidden"
+              aria-label="Ouvrir le menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
@@ -137,18 +143,20 @@ export function Navigation() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-hd-green mobile-menu-open overflow-y-auto">
-          <div className="flex flex-col min-h-full p-6">
+        <div className="fixed inset-0 z-[60] bg-hd-green mobile-menu-open overflow-y-auto overscroll-y-contain pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
+          <div className="flex min-h-full flex-col px-4 pb-4 pt-2 sm:px-6">
             <div className="flex justify-between items-center mb-12">
               <Link href="/" className="flex items-baseline gap-1" onClick={() => setIsMobileMenuOpen(false)}>
                 <span className="font-serif text-2xl font-bold text-hd-gold">HD</span>
                 <span className="font-sans text-lg font-light text-white">Corporate</span>
               </Link>
               <button
+                type="button"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white p-2"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-white"
+                aria-label="Fermer le menu"
               >
-                <X className="w-6 h-6" />
+                <X className="h-6 w-6" />
               </button>
             </div>
 
@@ -160,7 +168,7 @@ export function Navigation() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="font-serif text-xl text-white/80 hover:text-hd-gold transition-colors"
+                      className="flex min-h-11 items-center font-serif text-xl text-white/80 transition-colors hover:text-hd-gold"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.label}
@@ -171,20 +179,23 @@ export function Navigation() {
 
               <div className="border-t border-white/10 pt-6 flex flex-col gap-5">
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('about')}
-                  className="font-serif text-3xl text-white text-left hover:text-hd-gold transition-colors"
+                  className="min-h-12 w-full py-2 text-left font-serif text-3xl text-white transition-colors hover:text-hd-gold"
                 >
                   À propos
                 </button>
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('process')}
-                  className="font-serif text-3xl text-white text-left hover:text-hd-gold transition-colors"
+                  className="min-h-12 w-full py-2 text-left font-serif text-3xl text-white transition-colors hover:text-hd-gold"
                 >
                   Processus
                 </button>
                 <button
+                  type="button"
                   onClick={() => handleSectionClick('faq')}
-                  className="font-serif text-3xl text-white text-left hover:text-hd-gold transition-colors"
+                  className="min-h-12 w-full py-2 text-left font-serif text-3xl text-white transition-colors hover:text-hd-gold"
                 >
                   FAQ
                 </button>
@@ -193,8 +204,9 @@ export function Navigation() {
 
             <div className="mt-auto pt-8">
               <button
+                type="button"
                 onClick={() => handleSectionClick('booking')}
-                className="w-full bg-hd-gold text-hd-green py-4 text-lg font-medium rounded hover:bg-hd-gold/90 transition-colors"
+                className="min-h-12 w-full rounded bg-hd-gold py-4 text-lg font-medium text-hd-green transition-colors hover:bg-hd-gold/90"
               >
                 Réserver un appel gratuit
               </button>

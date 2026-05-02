@@ -81,10 +81,10 @@ const faqs = [
 
 export default function CorporateMaPage() {
   return (
-    <div className="pt-20">
+    <div className="pt-[calc(5rem+env(safe-area-inset-top))]">
       {/* Breadcrumb */}
       <div className="bg-hd-green/5 border-b border-hd-green/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-hd-green/60 hover:text-hd-green transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Retour à l'accueil
@@ -94,7 +94,7 @@ export default function CorporateMaPage() {
 
       {/* Hero */}
       <section className="bg-hd-green pattern-lines py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-6">
               Structurez vos opérations{' '}
@@ -120,7 +120,7 @@ export default function CorporateMaPage() {
             <BookingCtaLink
               serviceSlug="corporate-ma"
               serviceTitle="Corporate & M&A"
-              className="inline-flex items-center justify-center gap-2 bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded bg-hd-gold px-8 py-3 text-sm font-medium text-hd-green transition-colors hover:bg-hd-gold/90 sm:w-auto"
             >
               Demander un devis confidentiel
               <ArrowRight className="w-4 h-4" />
@@ -131,7 +131,7 @@ export default function CorporateMaPage() {
 
       {/* Services */}
       <section className="py-20 lg:py-28 bg-hd-cream">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="text-sm text-hd-green/60 tracking-wide">— Nos interventions</span>
           <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mt-4 mb-12 max-w-2xl">
             Un spectre complet d'actes Corporate & M&A
@@ -156,7 +156,7 @@ export default function CorporateMaPage() {
 
       {/* Credentials */}
       <section className="py-20 lg:py-28 bg-hd-green pattern-lines">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-sm text-white/50 tracking-wide">— Pourquoi HD Corporate</span>
@@ -186,7 +186,7 @@ export default function CorporateMaPage() {
 
       {/* For who */}
       <section className="py-20 lg:py-28 bg-hd-cream-dark">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="text-sm text-hd-green/60 tracking-wide">— Pour qui</span>
           <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mt-4 mb-12 max-w-2xl">
             Des accompagnements sur mesure pour chaque profil
@@ -204,7 +204,7 @@ export default function CorporateMaPage() {
 
       {/* Process */}
       <section className="py-20 lg:py-28 bg-hd-cream">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mb-4">
               Comment travaillons-nous ?
@@ -230,7 +230,7 @@ export default function CorporateMaPage() {
 
       {/* FAQ */}
       <section className="py-20 lg:py-28 bg-hd-cream-dark">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mb-12 text-center">
               Questions fréquentes
@@ -254,7 +254,7 @@ export default function CorporateMaPage() {
 
       {/* CTA */}
       <section className="py-20 bg-hd-cream">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-4xl font-light text-hd-green mb-4">
             Parlons de votre opération
           </h2>
@@ -265,13 +265,13 @@ export default function CorporateMaPage() {
             <BookingCtaLink
               serviceSlug="corporate-ma"
               serviceTitle="Corporate & M&A"
-              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors text-center"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded bg-hd-green px-8 py-3 text-center font-medium text-white transition-colors hover:bg-hd-green/90 sm:w-auto"
             >
               Demander un brief confidentiel
             </BookingCtaLink>
             <Link
               href="/#services"
-              className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors text-center"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded border-2 border-hd-green px-8 py-3 text-center font-medium text-hd-green transition-colors hover:bg-hd-green hover:text-white sm:w-auto"
             >
               Voir toutes les offres
             </Link>

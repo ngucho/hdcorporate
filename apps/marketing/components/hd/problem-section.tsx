@@ -68,7 +68,7 @@ export function ProblemSection() {
       ref={sectionRef}
       className="bg-hd-cream py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16">
           <span className="reveal text-sm text-hd-green/60 tracking-wide" style={{ transitionDelay: '0.1s' }}>
