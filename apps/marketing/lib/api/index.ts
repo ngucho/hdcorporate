@@ -4,11 +4,6 @@
 
 // Types
 export type {
-  TimeSlot,
-  BookingRequest,
-  BookingResponse,
-  AvailableSlotsRequest,
-  AvailableSlotsResponse,
   ContactRequest,
   ContactResponse,
   Service,

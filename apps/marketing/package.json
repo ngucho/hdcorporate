@@ -9,6 +9,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@fondatis/design-system": "workspace:*",
     "@hd-corporate/contracts": "workspace:*",
     "@hd-corporate/db": "workspace:*",

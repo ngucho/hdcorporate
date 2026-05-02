@@ -1,15 +1,21 @@
-import type { NextRequest } from 'next/server'
 import { createPublicFormRatelimit, getRedis, rateLimitOrThrow } from '@hd-corporate/cache'
 
-export async function enforcePublicFormRateLimit(request: NextRequest): Promise<void> {
+function clientIpFromHeaders(getHeader: (name: string) => string | undefined): string {
+  const forwarded = getHeader('x-forwarded-for')
+  return (
+    forwarded?.split(',')[0]?.trim() ??
+    getHeader('x-real-ip') ??
+    getHeader('cf-connecting-ip') ??
+    'anonymous'
+  )
+}
+
+export async function enforcePublicFormRateLimitFromHeaders(
+  getHeader: (name: string) => string | undefined
+): Promise<void> {
   const redis = getRedis()
   if (!redis) return
-  const forwarded = request.headers.get('x-forwarded-for')
-  const ip =
-    forwarded?.split(',')[0]?.trim() ??
-    request.headers.get('x-real-ip') ??
-    request.headers.get('cf-connecting-ip') ??
-    'anonymous'
+  const ip = clientIpFromHeaders(getHeader)
   const ratelimit = createPublicFormRatelimit(redis)
   await rateLimitOrThrow(ratelimit, ip)
 }

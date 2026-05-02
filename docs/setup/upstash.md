@@ -19,8 +19,8 @@ Si les variables sont absentes, les fonctionnalités qui en dépendent (limitati
 
 1. Ouvrir la base créée → onglet **REST API** (ou **Details**).
 2. Copier :
-   - **UPSTASH_REDIS_REST_URL** — URL `https://...upstash.io`
-   - **UPSTASH_REDIS_REST_TOKEN** — token Bearer
+   - **UPSTASH_REDIS_REST_URL** URL `https://...upstash.io`
+   - **UPSTASH_REDIS_REST_TOKEN** token Bearer
 
 ## 3. Renseigner l’environnement
 

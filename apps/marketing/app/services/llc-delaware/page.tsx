@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
+import { BookingCtaLink } from '@/components/hd/booking-cta-link'
 
 export const metadata: Metadata = {
-  title: 'LLC Delaware — Créez votre société US depuis la France | HD Corporate',
+  title: 'LLC Delaware Créez votre société US depuis la France | HD Corporate',
   description: 'Créez votre LLC aux États-Unis depuis la France ou l\'Afrique. EIN, Registered Agent 1 an, compte bancaire US (Mercury/Relay), accompagnement Stripe. 599€ tout inclus.',
 }
 
 const includes = [
   'Dépôt des Articles of Organization (État du Delaware)',
-  'EIN — Employer Identification Number (numéro fiscal US)',
+  'EIN Employer Identification Number (numéro fiscal US)',
   'Registered Agent pendant 12 mois',
   'Assistance ouverture compte bancaire US (Relay ou Mercury)',
   'Accompagnement Stripe / Stripe Atlas alternatif',
@@ -42,7 +43,7 @@ const keyInfo = [
   },
   {
     title: 'Fiscalité transparente pour les non-résidents',
-    desc: 'Une LLC est par défaut une entité "transparente" fiscalement. Les non-résidents US qui n\'ont pas d\'activité commerciale aux USA ne sont généralement pas imposés aux États-Unis (à confirmer avec votre comptable).',
+    desc: 'Une LLC est par défaut une entité "transparente" fiscalement. Les non-résidents US qui n\'ont pas d\'activité commerciale aux USA ne sont généralement pas imposés aux États-Unis',
   },
   {
     title: 'Ouvrir Stripe depuis la France',
@@ -57,7 +58,7 @@ const faqs = [
   },
   {
     q: 'Serai-je imposé aux États-Unis ?',
-    a: 'La LLC est une entité "pass-through" (transparente) fiscalement. Pour un non-résident sans activité commerciale directe aux USA, il n\'y a généralement pas d\'imposition fédérale américaine. Cela dit, chaque situation est différente — nous vous recommandons de consulter un comptable pour votre cas spécifique.',
+    a: 'La LLC est une entité "pass-through" (transparente) fiscalement. Pour un non-résident sans activité commerciale directe aux USA, il n\'y a généralement pas d\'imposition fédérale américaine. Cela dit, chaque situation est différente nous vous recommandons de consulter un comptable pour votre cas spécifique.',
   },
   {
     q: 'Dois-je me déplacer aux États-Unis ?',
@@ -69,7 +70,7 @@ const faqs = [
   },
   {
     q: 'Quelle différence entre Mercury, Relay et Stripe Atlas ?',
-    a: 'Mercury et Relay sont des néobanques américaines accessibles aux non-résidents avec une LLC. Stripe Atlas est un service tout-en-un qui crée la LLC et le compte Stripe — mais plus coûteux et moins flexible. Nous vous accompagnons sur la meilleure option selon votre usage.',
+    a: 'Mercury et Relay sont des néobanques américaines accessibles aux non-résidents avec une LLC. Stripe Atlas est un service tout-en-un qui crée la LLC et le compte Stripe mais plus coûteux et moins flexible. Nous vous accompagnons sur la meilleure option selon votre usage.',
   },
   {
     q: 'Dois-je déposer une déclaration fiscale aux USA chaque année ?',
@@ -119,19 +120,21 @@ export default function LlcDelawarePage() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/#booking"
+              <BookingCtaLink
+                serviceSlug="llc-delaware"
+                serviceTitle="LLC Delaware"
                 className="inline-flex items-center justify-center gap-2 bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
               >
                 Réserver mon appel gratuit
                 <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/#booking"
+              </BookingCtaLink>
+              <BookingCtaLink
+                serviceSlug="llc-delaware"
+                serviceTitle="LLC Delaware"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 text-sm font-medium rounded hover:border-hd-gold hover:text-hd-gold transition-colors"
               >
-                Commencer — 599€
-              </a>
+                Commencer 599€
+              </BookingCtaLink>
             </div>
           </div>
         </div>
@@ -250,14 +253,15 @@ export default function LlcDelawarePage() {
             Réservez un appel gratuit de 30 minutes. Nous analysons votre projet et vous confirmons que la LLC est la bonne structure avant tout paiement.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/#booking"
-              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors"
+            <BookingCtaLink
+              serviceSlug="llc-delaware"
+              serviceTitle="LLC Delaware"
+              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors text-center"
             >
               Réserver mon appel gratuit
-            </a>
+            </BookingCtaLink>
             <Link
-              href="/"
+              href="/#services"
               className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors text-center"
             >
               Voir toutes les offres

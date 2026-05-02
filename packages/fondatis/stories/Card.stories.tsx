@@ -23,7 +23,7 @@ export const Simple: Story = {
     <Card className="w-[380px]">
       <CardHeader>
         <CardTitle>Carte exemple</CardTitle>
-        <CardDescription>Design system Fondatis — palette épurée.</CardDescription>
+        <CardDescription>Design system Fondatis palette épurée.</CardDescription>
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">Contenu principal.</p>
@@ -43,7 +43,7 @@ export const Glass: Story = {
     <Card variant="glass" className="w-[400px]">
       <CardHeader>
         <CardTitle>Surface vitrée</CardTitle>
-        <CardDescription>Variante `glass` — blur + bordure légère.</CardDescription>
+        <CardDescription>Variante `glass` blur + bordure légère.</CardDescription>
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">Idéal pour panneaux flottants et headers.</p>

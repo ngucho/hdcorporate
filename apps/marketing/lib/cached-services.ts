@@ -2,7 +2,7 @@ import { unstable_cache } from 'next/cache'
 import { listPublishedServices } from '@hd-corporate/db'
 
 /**
- * Liste des offres publiées — mise en cache côté serveur (Next Data Cache).
+ * Liste des offres publiées mise en cache côté serveur (Next Data Cache).
  * `revalidate` : secondes entre deux lectures DB en prod / ISR.
  * Tag `published-services` : pour invalider via `revalidateTag` (route admin ou webhook) si besoin.
  */

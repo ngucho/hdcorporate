@@ -14,7 +14,7 @@ Les acheteurs B2B comparent en général :
 
 **Angle différenciant réaliste** pour HD Corporate (aligné sur le produit actuel) :
 
-- **Process clair** : prise de contact, réservation, FAQ — parcours déjà câblés sur le site.
+- **Process clair** : prise de contact, réservation, FAQ parcours déjà câblés sur le site.
 - **Données structurées** : offres et créneaux portés par une base Postgres unique ; API HTTP dédiée (`api`) pour intégrations futures ou partenaires.
 - **Backoffice interne** : traitement des leads et clients sur un domaine séparé (`insite`), avec auth maîtrisée (Auth0 + liste d’emails autorisés).
 - **Cohérence long terme** : design system **Fondatis** pour accélérer les prochains écrans sans refonte permanente.
@@ -25,7 +25,7 @@ Les acheteurs B2B comparent en général :
 
 1. **10 à 15 entretiens** ciblés (profil + secteur + douleur précise), 20–30 minutes, sans vente agressive : comprendre budget, critère de décision, concurrents habituels.
 2. **Une offre pilote** limitée (périmètre, durée, prix fixe) pour livrer un premier cas d’usage mesurable.
-3. **Mesurer le tunnel existant** : formulaires contact / leads / réservation — taux de complétion, temps de réponse interne, raisons d’abandon (analytics simple + retours qualitatifs).
+3. **Mesurer le tunnel existant** : formulaires contact / leads / réservation taux de complétion, temps de réponse interne, raisons d’abandon (analytics simple + retours qualitatifs).
 4. **Itérer une seule chose à la fois** (ex. clarifier l’accroche hero, ou simplifier une étape de booking), puis rejouer la mesure.
 
 L’objectif n’est pas le trafic maximal au début, mais **la preuve** que quelqu’un paie et recommande.
@@ -46,7 +46,7 @@ Réinvestissez dès que le **CAC** (coût d’acquisition) est inférieur à la 
 
 - Rédaction de **specs**, emails de suivi, synthèses de réunions, check-lists de livraison.
 - **Prototypes** ou maquettes textuelles avant développement ; revue humaine systématique.
-- Assistance au **code** (refactors, tests, documentation) — toujours avec revue et tests sur le monorepo (`pnpm build`, `pnpm lint`).
+- Assistance au **code** (refactors, tests, documentation) toujours avec revue et tests sur le monorepo (`pnpm build`, `pnpm lint`).
 
 **Côté client** :
 
@@ -63,7 +63,7 @@ Investissez dans ce qui réduit le coût marginal d’un nouveau client ou d’u
 | **Contrats partagés** (`@hd-corporate/contracts`) | Moins d’écarts entre front et API ; évolutions plus sûres. |
 | **Fondatis** | Nouvelles apps ou écrans plus vite, image de marque cohérente. |
 | **Redis / rate limit** | Protection des formulaires publics contre abus et pics de charge. |
-| **Documentation setup** ([`docs/setup/`](../setup/README.md)) | Onboarding rapide des collabs ou d’un prestataire — moins de temps perdu sur les secrets et domaines. |
+| **Documentation setup** ([`docs/setup/`](../setup/README.md)) | Onboarding rapide des collabs ou d’un prestataire moins de temps perdu sur les secrets et domaines. |
 
 **Dette consciente** : le marketing conserve encore du UI “shadcn local” pour l’instant ; migrer progressivement vers Fondatis réduit la double maintenance.
 

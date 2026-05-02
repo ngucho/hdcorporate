@@ -4,7 +4,7 @@ Le monorepo est conçu pour **trois projets Vercel** distincts pointant vers le 
 
 ## Référence principale
 
-La liste des domaines, commandes de build et récapitulatif des variables se trouve dans **[../VERCEL.md](../VERCEL.md)** — gardez ce fichier comme référence unique pour les URLs (`www`, `api`, `insite`) et le tableau des variables.
+La liste des domaines, commandes de build et récapitulatif des variables se trouve dans **[../VERCEL.md](../VERCEL.md)** gardez ce fichier comme référence unique pour les URLs (`www`, `api`, `insite`) et le tableau des variables.
 
 Ce document résume la procédure **dans l’UI Vercel** et renvoie aux guides fournisseurs pour remplir les valeurs.
 
@@ -14,18 +14,18 @@ Pour chaque application :
 
 1. Vercel Dashboard → **Add New** → **Project** → importer le repo GitHub/GitLab.
 2. **Root Directory** : **Edit** → choisir :
-   - `apps/marketing` — site public.
-   - `apps/api` — API HTTP.
-   - `apps/backoffice` — backoffice Auth0.
-3. **Framework Preset** : Next.js (détecté automatiquement en général).
-4. **Build Command** : laisser par défaut ou `cd ../.. && pnpm exec turbo build --filter=@hd-corporate/...` si la racine monorepo n’est pas détectée — en pratique Vercel exécute depuis la sous-dossier ; vérifiez que `pnpm install` à la racine est bien invoqué (voir doc Vercel monorepo : **Install Command** `pnpm install` à la racine du repo avec **Root Directory** sur le sous-package).
+   - `apps/marketing` site public.
+   - `apps/api` API HTTP.
+   - `apps/backoffice` backoffice Auth0.
+3. **Framework Preset** : Next.js pour `apps/marketing` et `apps/backoffice`. Pour **`apps/api`** : **Hono** (détection automatique si `src/index.ts` exporte l’app par défaut voir [Hono on Vercel](https://vercel.com/docs/frameworks/backend/hono)) ; sinon **Other** avec **Build Command** `pnpm run build` et **Install Command** `cd ../.. && pnpm install` si besoin.
+4. **Build Command** : laisser par défaut ou `cd ../.. && pnpm exec turbo build --filter=@hd-corporate/...` si la racine monorepo n’est pas détectée en pratique Vercel exécute depuis la sous-dossier ; vérifiez que `pnpm install` à la racine est bien invoqué (voir doc Vercel monorepo : **Install Command** `pnpm install` à la racine du repo avec **Root Directory** sur le sous-package).
 
    Si besoin, à la racine du repo, un `vercel.json` ou les paramètres projet peuvent fixer :
 
    - **Install Command** : `pnpm install` (depuis la racine du monorepo).
    - **Build Command** : depuis la sous-app, `pnpm run build` ou équivalent turbo.
 
-5. **Output** : Next.js par défaut.
+5. **Output** : Next.js par défaut pour les fronts ; l’API Hono n’utilise pas de dossier `.next` (fonctions dérivées du point d’entrée `src/index.ts`).
 
 ## Variables d’environnement par projet
 

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
+import { BookingCtaLink } from '@/components/hd/booking-cta-link'
 
 export const metadata: Metadata = {
-  title: 'Corporate & M&A — Accompagnement juridique stratégique | HD Corporate',
+  title: 'Corporate & M&A Accompagnement juridique stratégique | HD Corporate',
   description: 'NDA, LOI, SPA, due diligence, pacte d\'associés, augmentation de capital. Accompagnement juridique sur-mesure pour vos opérations de croissance et de cession. Sur devis.',
 }
 
@@ -12,7 +13,7 @@ const services = [
     category: 'Protection & confidentialité',
     items: [
       { name: 'NDA / Accord de confidentialité', desc: 'Protégez vos informations sensibles lors de discussions avec partenaires, investisseurs ou acquéreurs potentiels.' },
-      { name: 'Lettre d\'intention (LOI)', desc: 'Cadrez les termes d\'un accord préliminaire — termes financiers, exclusivité, conditions suspensives.' },
+      { name: 'Lettre d\'intention (LOI)', desc: 'Cadrez les termes d\'un accord préliminaire termes financiers, exclusivité, conditions suspensives.' },
     ],
   },
   {
@@ -37,7 +38,7 @@ const forWho = [
   { title: 'Dirigeants en croissance externe', desc: 'Vous rachetez une entreprise ou un fonds de commerce ? Nous structurons l\'opération de A à Z.' },
   { title: 'Cédants & actionnaires sortants', desc: 'Vous souhaitez vendre tout ou partie de votre entreprise dans les meilleures conditions.' },
   { title: 'Investisseurs & fonds', desc: 'Prise de participation, structuration d\'un véhicule d\'investissement, due diligence cible.' },
-  { title: 'Fondateurs en levée de fonds', desc: 'Love money, business angels, VC — accompagnement sur les aspects juridiques du tour.' },
+  { title: 'Fondateurs en levée de fonds', desc: 'Love money, business angels, VC accompagnement sur les aspects juridiques du tour.' },
   { title: 'PME en restructuration', desc: 'Réorganisation d\'un groupe, création de holding, fusion de filiales, scission d\'activité.' },
 ]
 
@@ -49,7 +50,7 @@ const steps = [
 ]
 
 const credentials = [
-  'Master Fusions & Acquisitions — Université Paris-Saclay (2022-2023)',
+  'Master Fusions & Acquisitions Université Paris-Saclay (2022-2023)',
   'Expérience sur des opérations de rachat, due diligence et structuration de holding',
   'Maîtrise du droit des sociétés français et des structures cross-border Franco-Africaines',
   'Rédaction de SPA, LOI, NDA, pactes d\'associés et documents de gouvernance',
@@ -100,7 +101,7 @@ export default function CorporateMaPage() {
               <em className="italic text-hd-gold">avec expertise</em>
             </h1>
             <p className="text-white/70 text-lg mb-10 max-w-2xl">
-              NDA, LOI, SPA, due diligence, pactes d'associés — un accompagnement juridique sur-mesure pour vos projets de cession, d'acquisition ou de croissance. Hamidou Diallo est titulaire d'un Master M&A (Paris-Saclay).
+              NDA, LOI, SPA, due diligence, pactes d'associés un accompagnement juridique sur-mesure pour vos projets de cession, d'acquisition ou de croissance. Hamidou Diallo est titulaire d'un Master M&A (Paris-Saclay).
             </p>
             <div className="flex flex-wrap gap-8 mb-10">
               <div>
@@ -116,13 +117,14 @@ export default function CorporateMaPage() {
                 <p className="text-white/50 text-sm">confidentiel</p>
               </div>
             </div>
-            <a
-              href="/#booking"
+            <BookingCtaLink
+              serviceSlug="corporate-ma"
+              serviceTitle="Corporate & M&A"
               className="inline-flex items-center justify-center gap-2 bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
             >
               Demander un devis confidentiel
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </BookingCtaLink>
           </div>
         </div>
       </section>
@@ -162,7 +164,7 @@ export default function CorporateMaPage() {
                 Une expertise M&A rigoureuse, à un tarif accessible.
               </h2>
               <p className="text-white/70 leading-relaxed mb-6">
-                Les opérations Corporate & M&A sont souvent réservées aux grandes structures — cabinets d'affaires à 400€/heure, processes longs et opaques.
+                Les opérations Corporate & M&A sont souvent réservées aux grandes structures cabinets d'affaires à 400€/heure, processes longs et opaques.
               </p>
               <p className="text-white/70 leading-relaxed">
                 HD Corporate offre le même niveau d'expertise académique et pratique, avec la réactivité et la transparence d'une structure indépendante.
@@ -260,14 +262,15 @@ export default function CorporateMaPage() {
             Un brief confidentiel de 30 minutes suffit pour comprendre vos enjeux, vous expliquer notre approche, et vous faire une proposition tarifaire transparente.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/#booking"
-              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors"
+            <BookingCtaLink
+              serviceSlug="corporate-ma"
+              serviceTitle="Corporate & M&A"
+              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors text-center"
             >
               Demander un brief confidentiel
-            </a>
+            </BookingCtaLink>
             <Link
-              href="/"
+              href="/#services"
               className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors text-center"
             >
               Voir toutes les offres

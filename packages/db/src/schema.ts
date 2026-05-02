@@ -1,3 +1,4 @@
+import { sql } from 'drizzle-orm'
 import {
   boolean,
   jsonb,
@@ -53,22 +54,35 @@ export const leads = pgTable(
   })
 )
 
-export const bookings = pgTable('bookings', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  externalId: text('external_id').notNull().unique(),
-  bookingDate: text('booking_date').notNull(),
-  slotTime: text('slot_time').notNull(),
-  name: text('name').notNull(),
-  email: text('email').notNull(),
-  phone: text('phone'),
-  company: text('company'),
-  service: text('service').notNull(),
-  message: text('message'),
-  status: text('status').notNull().default('pending'),
-  calendarLink: text('calendar_link'),
-  clientId: uuid('client_id').references(() => clients.id),
-  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
-})
+export const bookings = pgTable(
+  'bookings',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    externalId: text('external_id').notNull().unique(),
+    bookingDate: text('booking_date').notNull(),
+    slotTime: text('slot_time').notNull(),
+    name: text('name').notNull(),
+    email: text('email').notNull(),
+    phone: text('phone'),
+    company: text('company'),
+    service: text('service').notNull(),
+    message: text('message'),
+    status: text('status').notNull().default('pending'),
+    calendarLink: text('calendar_link'),
+    /** Toujours alimenté via webhooks Cal.com (`calcom`). */
+    source: text('source').notNull().default('calcom'),
+    /** UID Cal.com (`payload.uid`) idempotence webhooks */
+    providerBookingUid: text('provider_booking_uid'),
+    metadata: jsonb('metadata').$type<Record<string, unknown> | null>(),
+    clientId: uuid('client_id').references(() => clients.id),
+    createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => ({
+    providerBookingUidUnique: uniqueIndex('bookings_provider_booking_uid_unique')
+      .on(table.providerBookingUid)
+      .where(sql`${table.providerBookingUid} IS NOT NULL`),
+  })
+)
 
 export const contactTickets = pgTable('contact_tickets', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -97,10 +111,3 @@ export const receipts = pgTable('receipts', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 })
 
-export const slotBlocks = pgTable('slot_blocks', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  blockDate: text('block_date').notNull(),
-  slotTime: text('slot_time'),
-  reason: text('reason'),
-  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
-})

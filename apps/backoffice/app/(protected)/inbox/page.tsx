@@ -60,9 +60,11 @@ export default async function InboxPage() {
             <thead style={{ background: 'var(--panel)' }}>
               <tr className="text-left text-[var(--muted)]">
                 <th className="p-3">Réf.</th>
+                <th className="p-3">Source</th>
                 <th className="p-3">Date / heure</th>
                 <th className="p-3">Client</th>
                 <th className="p-3">Service</th>
+                <th className="p-3">Visio / cal.</th>
                 <th className="p-3">Statut</th>
               </tr>
             </thead>
@@ -70,6 +72,7 @@ export default async function InboxPage() {
               {bookings.map((b) => (
                 <tr key={b.id} className="border-t" style={{ borderColor: 'var(--border)' }}>
                   <td className="p-3 font-mono text-xs">{b.externalId}</td>
+                  <td className="p-3 text-xs uppercase tracking-wide">{b.source ?? 'internal'}</td>
                   <td className="p-3">
                     {b.bookingDate} {b.slotTime}
                   </td>
@@ -78,12 +81,26 @@ export default async function InboxPage() {
                     <div className="text-xs text-[var(--muted)]">{b.email}</div>
                   </td>
                   <td className="p-3">{b.service}</td>
+                  <td className="p-3">
+                    {b.calendarLink && /^https?:\/\//i.test(b.calendarLink) ? (
+                      <a
+                        href={b.calendarLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--accent)] underline-offset-2 hover:underline text-xs"
+                      >
+                        Ouvrir le lien
+                      </a>
+                    ) : (
+                      <span className="text-[var(--muted)] text-xs">—</span>
+                    )}
+                  </td>
                   <td className="p-3">{b.status}</td>
                 </tr>
               ))}
               {bookings.length === 0 && (
                 <tr>
-                  <td className="p-4 text-[var(--muted)]" colSpan={5}>
+                  <td className="p-4 text-[var(--muted)]" colSpan={7}>
                     Aucune réservation.
                   </td>
                 </tr>

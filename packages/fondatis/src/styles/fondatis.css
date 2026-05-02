@@ -1,5 +1,5 @@
 /**
- * Fondatis — design system (Tailwind v4 + tokens).
+ * Fondatis design system (Tailwind v4 + tokens).
  * Import puis ajoutez vos @source dans chaque app.
  */
 @import 'tailwindcss';
@@ -31,7 +31,7 @@
   --border: 220 13% 88%;
   --input: 220 13% 88%;
   --ring: 222 41% 35%;
-  /* Surfaces vitrées (canal H S L — utiliser hsl(var(--x) / a)) */
+  /* Surfaces vitrées (canal H S L utiliser hsl(var(--x) / a)) */
   --glass: 0 0% 100%;
   --glass-border: 220 20% 100%;
   --surface-elevated: 0 0% 100%;

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
+import { BookingCtaLink } from '@/components/hd/booking-cta-link'
 
 export const metadata: Metadata = {
-  title: 'Pack Création France — SAS, SASU, EURL dès 299€ | HD Corporate',
+  title: 'Pack Création France SAS, SASU, EURL dès 299€ | HD Corporate',
   description: 'Créez votre SAS, SASU ou EURL en 3 à 5 jours ouvrés. Statuts sur-mesure, immatriculation INPI, annonce légale incluse. Accompagnement personnalisé par un juriste spécialisé.',
 }
 
@@ -102,7 +103,7 @@ export default function CreationFrancePage() {
               <em className="italic text-hd-gold">en 3 à 5 jours</em>
             </h1>
             <p className="text-white/70 text-lg mb-10 max-w-2xl">
-              Un accompagnement sur-mesure de A à Z. Statuts rédigés pour votre situation, immatriculation INPI, annonce légale incluse — sans stress et sans mauvaise surprise.
+              Un accompagnement sur-mesure de A à Z. Statuts rédigés pour votre situation, immatriculation INPI, annonce légale incluse sans stress et sans mauvaise surprise.
             </p>
             <div className="flex flex-wrap gap-8 mb-10">
               <div>
@@ -119,19 +120,21 @@ export default function CreationFrancePage() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/#booking"
+              <BookingCtaLink
+                serviceSlug="creation-france"
+                serviceTitle="Pack Création France"
                 className="inline-flex items-center justify-center gap-2 bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
               >
                 Réserver mon appel gratuit
                 <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/#booking"
+              </BookingCtaLink>
+              <BookingCtaLink
+                serviceSlug="creation-france"
+                serviceTitle="Pack Création France"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 text-sm font-medium rounded hover:border-hd-gold hover:text-hd-gold transition-colors"
               >
-                Commencer — 299€
-              </a>
+                Commencer 299€
+              </BookingCtaLink>
             </div>
           </div>
         </div>
@@ -256,14 +259,15 @@ export default function CreationFrancePage() {
             Réservez votre appel gratuit de 30 minutes. Nous analysons votre projet ensemble et vous confirmons la structure adaptée avant tout paiement.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/#booking"
-              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors"
+            <BookingCtaLink
+              serviceSlug="creation-france"
+              serviceTitle="Pack Création France"
+              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors text-center"
             >
               Réserver mon appel gratuit
-            </a>
+            </BookingCtaLink>
             <Link
-              href="/"
+              href="/#services"
               className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors text-center"
             >
               Voir toutes les offres

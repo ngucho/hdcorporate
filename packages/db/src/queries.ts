@@ -1,14 +1,6 @@
-import { and, asc, desc, eq, inArray } from 'drizzle-orm'
+import { asc, desc, eq } from 'drizzle-orm'
 import { getDb } from './client.js'
-import {
-  bookings,
-  clients,
-  contactTickets,
-  leads,
-  receipts,
-  services,
-  slotBlocks,
-} from './schema.js'
+import { bookings, clients, contactTickets, leads, receipts, services } from './schema.js'
 
 export type PublicService = {
   id: string
@@ -73,52 +65,76 @@ export async function insertContactTicket(input: {
   })
 }
 
-export async function insertBooking(input: {
+export async function findBookingByProviderUid(providerBookingUid: string) {
+  const db = getDb()
+  const [row] = await db
+    .select()
+    .from(bookings)
+    .where(eq(bookings.providerBookingUid, providerBookingUid))
+    .limit(1)
+  return row ?? null
+}
+
+export async function insertCalcomBooking(input: {
   externalId: string
   bookingDate: string
   slotTime: string
   name: string
   email: string
-  phone?: string
-  company?: string
+  phone?: string | null
+  company?: string | null
   service: string
-  message?: string
+  message?: string | null
   calendarLink: string
+  providerBookingUid: string
+  metadata?: Record<string, unknown> | null
 }) {
   const db = getDb()
-  await db.insert(bookings).values({
-    externalId: input.externalId,
-    bookingDate: input.bookingDate,
-    slotTime: input.slotTime,
-    name: input.name,
-    email: input.email,
-    phone: input.phone ?? null,
-    company: input.company ?? null,
-    service: input.service,
-    message: input.message ?? null,
-    calendarLink: input.calendarLink,
-    status: 'confirmed',
-  })
+  const [row] = await db
+    .insert(bookings)
+    .values({
+      externalId: input.externalId,
+      bookingDate: input.bookingDate,
+      slotTime: input.slotTime,
+      name: input.name,
+      email: input.email,
+      phone: input.phone ?? null,
+      company: input.company ?? null,
+      service: input.service,
+      message: input.message ?? null,
+      calendarLink: input.calendarLink,
+      status: 'confirmed',
+      source: 'calcom',
+      providerBookingUid: input.providerBookingUid,
+      metadata: input.metadata ?? null,
+    })
+    .returning()
+  return row
 }
 
-export async function listBookedSlotTimesForDate(bookingDate: string): Promise<string[]> {
+export async function updateCalcomBookingByProviderUid(
+  providerBookingUid: string,
+  patch: {
+    providerBookingUid?: string
+    bookingDate?: string
+    slotTime?: string
+    name?: string
+    email?: string
+    phone?: string | null
+    service?: string
+    message?: string | null
+    calendarLink?: string
+    status?: string
+    metadata?: Record<string, unknown> | null
+  }
+) {
   const db = getDb()
-  const rows = await db
-    .select({ slotTime: bookings.slotTime })
-    .from(bookings)
-    .where(
-      and(eq(bookings.bookingDate, bookingDate), inArray(bookings.status, ['pending', 'confirmed']))
-    )
-
-  return rows.map((r) => r.slotTime)
-}
-
-export async function listSlotBlocksForDate(bookingDate: string) {
-  const db = getDb()
-  return await db
-    .select()
-    .from(slotBlocks)
-    .where(eq(slotBlocks.blockDate, bookingDate))
+  const [row] = await db
+    .update(bookings)
+    .set(patch)
+    .where(eq(bookings.providerBookingUid, providerBookingUid))
+    .returning()
+  return row ?? null
 }
 
 export async function listClients() {

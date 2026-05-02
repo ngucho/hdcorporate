@@ -52,7 +52,7 @@ export function CTASection() {
 
         {/* Subtitle */}
         <p className="reveal text-hd-green/70 mb-10 max-w-xl mx-auto" style={{ transitionDelay: '0.3s' }}>
-          {"Que vous créiez votre première société, structuriez une croissance ou sécurisiez une opération importante — nous sommes là pour vous accompagner. Premier appel offert, zéro engagement."}
+          {"Que vous créiez votre première société, structuriez une croissance ou sécurisiez une opération importante nous sommes là pour vous accompagner. Premier appel offert, zéro engagement."}
         </p>
 
         {/* CTAs */}
@@ -67,7 +67,7 @@ export function CTASection() {
             onClick={() => scrollToSection('services')}
             className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors"
           >
-            Créer ma société — 299€
+            Créer ma société 299€
           </button>
         </div>
       </div>

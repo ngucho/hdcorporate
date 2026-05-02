@@ -56,10 +56,10 @@ Sur le projet Vercel dont la racine est `apps/backoffice`, ajoutez les mêmes cl
 
 ## 5. Base de données
 
-Le backoffice lit aussi **`DATABASE_URL`** (Supabase) pour les pages et actions serveur — voir [supabase.md](supabase.md).
+Le backoffice lit aussi **`DATABASE_URL`** (Supabase) pour les pages et actions serveur voir [supabase.md](supabase.md).
 
 ## Dépannage
 
 - **Callback URL mismatch** : aligner exactement l’URL dans Auth0 (schéma `https`, pas de slash en trop, bon port en local **3001**).
 - **AUTH0_SECRET** manquant : erreurs au runtime / build ; générez une valeur dédiée.
-- Avertissements **Missing: domain / clientId** pendant `next build` sans `.env` : normal en CI sans secrets ; le build peut quand même réussir selon la version du SDK — fournissez les variables sur Vercel pour la prod.
+- Avertissements **Missing: domain / clientId** pendant `next build` sans `.env` : normal en CI sans secrets ; le build peut quand même réussir selon la version du SDK fournissez les variables sur Vercel pour la prod.

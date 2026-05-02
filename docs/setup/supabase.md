@@ -32,7 +32,7 @@ HD Corporate utilise **Postgres hébergé sur Supabase** avec **Drizzle ORM** da
 
 1. `.env` à la racine du monorepo  
 2. `.env.local` à la racine  
-3. `packages/db/.env` — voir [`packages/db/.env.example`](../../packages/db/.env.example)  
+3. `packages/db/.env` voir [`packages/db/.env.example`](../../packages/db/.env.example)  
 4. `apps/marketing/.env.local`  
 5. `apps/api/.env.local`  
 6. `apps/backoffice/.env.local`  

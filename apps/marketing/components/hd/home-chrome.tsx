@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { HomeHashScroll } from './home-hash-scroll'
 
 const CustomCursor = dynamic(
   () => import('./custom-cursor').then((m) => ({ default: m.CustomCursor })),
@@ -16,6 +17,7 @@ const ScrollProgress = dynamic(
 export function HomeChrome() {
   return (
     <>
+      <HomeHashScroll />
       <CustomCursor />
       <ScrollProgress />
     </>

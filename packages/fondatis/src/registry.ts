@@ -1,5 +1,5 @@
 /**
- * Registre des primitives Fondatis — référence unique pour couverture et évolutions.
+ * Registre des primitives Fondatis référence unique pour couverture et évolutions.
  * Les exports publics restent dans `index.ts` ; ce fichier documente l’intention produit.
  */
 export const FONDATIS_COMPONENTS = [
@@ -32,5 +32,5 @@ export const FONDATIS_COMPONENTS = [
 
 export type FondatisComponentName = (typeof FONDATIS_COMPONENTS)[number]
 
-/** Prévu : NavigationMenu, Command, Calendar, Accordion, Sheet, Drawer, Resizable — à brancher selon besoins apps. */
+/** Prévu : NavigationMenu, Command, Calendar, Accordion, Sheet, Drawer, Resizable à brancher selon besoins apps. */
 export const FONDATIS_PLANNED = ['NavigationMenu', 'Command', 'Calendar', 'Accordion', 'Sheet', 'Drawer'] as const

@@ -115,10 +115,10 @@ export function Footer() {
               <li>91000 Évry-Courcouronnes</li>
               <li className="pt-2">
                 <a
-                  href="mailto:hamidoudiallo.fusac@gmail.com"
+                  href="mailto: contact.hdcorporate@gmail.com"
                   className="hover:text-hd-gold transition-colors"
                 >
-                  hamidoudiallo.fusac@gmail.com
+                   contact.hdcorporate@gmail.com
                 </a>
               </li>
               <li>

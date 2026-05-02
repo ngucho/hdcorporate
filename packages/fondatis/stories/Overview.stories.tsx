@@ -29,7 +29,7 @@ export const Gallery: Story = {
       <header className="space-y-2">
         <h1 className="text-2xl font-semibold tracking-tight">Fondatis</h1>
         <p className="text-sm text-muted-foreground">
-          Couche UI partagée — thème épuré, surfaces translucides, primitives Radix + Tabler.
+          Couche UI partagée thème épuré, surfaces translucides, primitives Radix + Tabler.
         </p>
         <div className="flex flex-wrap gap-2">
           {FONDATIS_COMPONENTS.map((name) => (
@@ -92,7 +92,7 @@ export const Gallery: Story = {
         <div className="space-y-4">
           <Alert variant="default">
             <AlertTitle>Information</AlertTitle>
-            <AlertDescription>Alerte translucide — variante default.</AlertDescription>
+            <AlertDescription>Alerte translucide variante default.</AlertDescription>
           </Alert>
 
           <Tabs defaultValue="a">

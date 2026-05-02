@@ -34,6 +34,8 @@
     "app/**/*.tsx",
     "components/hd/**/*.tsx",
     "components/theme-provider.tsx",
+    "features/**/*.ts",
+    "features/**/*.tsx",
     "hooks/**/*.ts",
     "hooks/**/*.tsx",
     "lib/**/*.ts",

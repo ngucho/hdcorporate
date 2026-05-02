@@ -20,7 +20,8 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: 'HD Corporate | Secrétariat Juridique & Création de Société',
-  description: 'Cabinet de secrétariat juridique indépendant fondé par Hamidou Diallo. Création de société dès 299€, secrétariat juridique, M&A et Corporate. Accompagnement personnalisé pour entrepreneurs.',
+  description:
+    'Secrétariat juridique et création de société dès 299 € : formalités claires, M&A et corporate pour dirigeants, fondateurs et freelances. Accompagnement par Hamidou Diallo.',
   keywords: 'création société, secrétariat juridique, SAS, SASU, EURL, droit des affaires, M&A, corporate, juriste, Paris, Évry',
   authors: [{ name: 'Hamidou Diallo' }],
   openGraph: {
