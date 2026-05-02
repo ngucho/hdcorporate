@@ -1,7 +1,7 @@
 {
   "name": "hd-corporate",
   "private": true,
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",

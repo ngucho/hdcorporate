@@ -11,9 +11,7 @@ import { requireBearerAuth } from '../core/middleware/bearer-auth.js'
 export function createInternalGateway(): Hono<AppEnv> {
   const r = new Hono<AppEnv>()
 
-  r.get('/health', (c) =>
-    c.json({ ok: true as const, service: 'hd-corporate-api', ts: new Date().toISOString() })
-  )
+  r.get('/health', (c) => c.json({ ok: true as const, ts: new Date().toISOString() }))
 
   const v1 = new Hono<AppEnv>()
   v1.use('*', requireBearerAuth)

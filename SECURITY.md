@@ -1,22 +1,28 @@
 # Security policy
 
+This repository contains **proprietary** software. Treat all contents as confidential unless HD Corporate has agreed otherwise in writing.
+
 ## Reporting a vulnerability
 
-Please report security issues **privately** (do not open a public GitHub issue).  
-Contact the maintainers through a **private channel** you already use with HD Corporate, or via **GitHub Security Advisories** for this repository (**Security → Report a vulnerability**), if enabled.
+Report security issues **privately** — do not open a public issue with exploit details.
 
-Include steps to reproduce, affected components (API, marketing, backoffice), and severity if you can.
+- Prefer **GitHub Security Advisories** for this repository (**Security → Report a vulnerability**), if enabled.
+- Otherwise use a **private channel** already established with HD Corporate.
+
+Include: affected component (marketing, API, backoffice), reproduction steps, and impact assessment if possible.
 
 ## Secrets and configuration
 
-- **Never commit** real credentials: `.env`, `.env*.local`, API keys, database URLs, webhook secrets, Auth0 client secrets, or TLS private keys (`.pem`, `.p12`, etc.).
-- This repository **ignores** `.env*.local` by default. Use `.env.example` files as templates only (placeholders).
-- If a secret was ever pushed to Git history, **rotate it immediately** in the provider dashboard (Resend, Supabase, Auth0, Cal.com, etc.) and consider history cleanup (`git filter-repo`) with team agreement.
+- **Never commit** real credentials: `.env`, `.env*.local`, API keys, database URLs, webhook secrets (Cal.com, etc.), Auth0 secrets, or private keys (`.pem`, `.p12`, `.key`).
+- Use only **`.env.example`** (placeholders) in Git. Local secrets stay in `.env*.local` (gitignored).
+- If any secret was pushed to Git (even briefly): **rotate it immediately** in the provider console, then consider cleaning Git history with team approval (`git filter-repo` or equivalent).
+
+## Hardening in this codebase
+
+- HTTP security headers are applied on **Next.js** (marketing, backoffice) and on the **API** (Hono) where applicable.
+- Public API CORS is restricted to origins listed in `API_ALLOWED_ORIGINS` (see `apps/api/.env.example`).
+- Webhooks verify provider signatures (e.g. Cal.com HMAC) before processing.
 
 ## Supported versions
 
-Security fixes are applied on the **default branch** for the deployment configuration in use. Older tags may not receive backports unless agreed with maintainers.
-
-## Scope
-
-Public-facing HTTP surfaces (marketing, public API routes, webhooks) should follow least privilege, validated input, and documented env vars. Internal backoffice access is gated by Auth0 as documented under `docs/security/`.
+Security-relevant fixes are applied on the **default branch** for active deployments. Older branches or tags may not be maintained.

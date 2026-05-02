@@ -8,7 +8,7 @@ Voir [`docs/setup/README.md`](docs/setup/README.md) (base de données, env, Cal.
 
 ## Licence
 
-Ce dépôt est publié sous la **licence MIT** — voir [`LICENSE`](LICENSE).
+**Logiciel propriétaire** — tous droits réservés. Voir [`LICENSE`](LICENSE). Aucune utilisation, copie ou distribution n’est autorisée sans accord écrit de HD Corporate.
 
 ## Sécurité
 

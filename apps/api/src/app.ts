@@ -3,6 +3,7 @@ import { getRootLogger } from './core/logger.js'
 import type { AppEnv } from './core/hono-env.js'
 import { requestContext } from './core/middleware/request-context.js'
 import { requestLogging } from './core/middleware/request-logging.js'
+import { securityHeaders } from './core/middleware/security-headers.js'
 import { createInternalGateway } from './modules/internal-gateway.js'
 import { createPublicApiGateway } from './modules/public-gateway.js'
 import { createWebhooksHub } from './modules/webhooks/hub.js'
@@ -12,6 +13,7 @@ const rootHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"/><t
 export const app = new Hono<AppEnv>()
 
 app.use('*', requestContext)
+app.use('*', securityHeaders)
 app.use('*', requestLogging)
 
 app.onError((err, c) => {
