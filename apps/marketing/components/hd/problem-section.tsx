@@ -72,7 +72,7 @@ export function ProblemSection() {
         {/* Header */}
         <div className="mb-16">
           <span className="reveal text-sm text-hd-green/60 tracking-wide" style={{ transitionDelay: '0.1s' }}>
-            — Le problème que nous résolvons
+            Le problème que nous résolvons
           </span>
           <h2 className="reveal font-serif text-3xl md:text-4xl lg:text-5xl font-light text-hd-green mt-4 max-w-3xl" style={{ transitionDelay: '0.2s' }}>
             Entreprendre ne devrait jamais être un privilège.

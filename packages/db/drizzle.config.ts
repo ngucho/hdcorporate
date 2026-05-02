@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(__dirname, '../..')
 
-/** drizzle-kit runs outside Next.js — load the same secrets as typical local dev. */
+/** drizzle-kit runs outside Next.js load the same secrets as typical local dev. */
 const envPaths = [
   resolve(repoRoot, '.env'),
   resolve(repoRoot, '.env.local'),

@@ -15,7 +15,7 @@ Couche **UI/UX partagée** pour les applications HD Corporate (et futures apps d
 | React (peer) | **19.x** | Aligné sur Next 16 des apps. |
 | Storybook | **8.6.x** + Vite **5.4.x** | Docs & playground. |
 
-Les **apps** utilisent **Next 16.2.x** et **React 19** — mêmes générations majeures pour limiter les écarts.
+Les **apps** utilisent **Next 16.2.x** et **React 19** mêmes générations majeures pour limiter les écarts.
 
 ## CSS consommable par les apps
 
@@ -32,9 +32,9 @@ Puis ajouter vos tokens métier **après** cet import.
 
 ### Utilitaires translucides
 
-- **`fd-glass`** / **`fd-glass-subtle`** / **`fd-glass-strong`** — bordure légère, fond `card` semi-transparent, `backdrop-blur`.
-- **`fd-glass-padding`** — padding cohérent pour panneaux vitrés.
-- **`fd-focus-ring`** — anneau de focus aligné sur le thème.
+- **`fd-glass`** / **`fd-glass-subtle`** / **`fd-glass-strong`** bordure légère, fond `card` semi-transparent, `backdrop-blur`.
+- **`fd-glass-padding`** padding cohérent pour panneaux vitrés.
+- **`fd-focus-ring`** anneau de focus aligné sur le thème.
 
 ## Composants exportés
 
@@ -83,7 +83,7 @@ Build statique :
 pnpm --filter @fondatis/design-system build-storybook
 ```
 
-Sortie : `packages/fondatis/storybook-static` — stories **Overview**, **Button**, **Card**.
+Sortie : `packages/fondatis/storybook-static` stories **Overview**, **Button**, **Card**.
 
 ## Développement du package
 

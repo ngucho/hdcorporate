@@ -4,14 +4,14 @@ Ce dossier décrit **où** obtenir chaque secret ou URL dans les dashboards four
 
 ## Ordre d’onboarding recommandé
 
-1. **[Supabase](supabase.md)** — créer le projet Postgres, récupérer `DATABASE_URL` (pooler) et éventuellement `DIRECT_URL`.
-2. **Migrations** — depuis la racine : `pnpm db:migrate`. Les URLs peuvent être dans `apps/*/env.local` ou à la racine — voir [supabase.md](supabase.md) (chargement explicite par `packages/db/drizzle.config.ts`).
-3. **Seed** — exécuter le SQL des offres si besoin : [../../packages/db/seed/services.sql](../../packages/db/seed/services.sql).
-4. **[Upstash](upstash.md)** — créer la base Redis REST pour **`apps/api`** uniquement (optionnel mais recommandé en prod).
-5. **CORS** — définir `API_ALLOWED_ORIGINS` sur le projet API pour autoriser `www` + apex + previews si besoin.
-6. **[Vercel](vercel.md)** — trois projets (marketing, api, backoffice), variables par environnement.
-7. **[Auth0](auth0.md)** — application Regular Web pour le backoffice `insite`.
-8. **Local** — copier les `.env.example` vers `.env.local` dans chaque app ; lancer `pnpm dev` (ports par défaut **3000** marketing, **3001** backoffice, **3002** API).
+1. **[Supabase](supabase.md)** créer le projet Postgres, récupérer `DATABASE_URL` (pooler) et éventuellement `DIRECT_URL`.
+2. **Migrations** depuis la racine : `pnpm db:migrate`. Les URLs peuvent être dans `apps/*/env.local` ou à la racine voir [supabase.md](supabase.md) (chargement explicite par `packages/db/drizzle.config.ts`).
+3. **Seed** exécuter le SQL des offres si besoin : [../../packages/db/seed/services.sql](../../packages/db/seed/services.sql).
+4. **[Upstash](upstash.md)** créer la base Redis REST pour **`apps/api`** uniquement (optionnel mais recommandé en prod).
+5. **CORS** définir `API_ALLOWED_ORIGINS` sur le projet API pour autoriser `www` + apex + previews si besoin.
+6. **[Vercel](vercel.md)** trois projets (marketing, api, backoffice), variables par environnement.
+7. **[Auth0](auth0.md)** application Regular Web pour le backoffice `insite`.
+8. **Local** copier les `.env.example` vers `.env.local` dans chaque app ; lancer `pnpm dev` (ports par défaut **3000** marketing, **3001** backoffice, **3002** API).
 
 ## Index des guides
 
@@ -51,6 +51,8 @@ Si **3001**, **3002** ou **3000** est pris (autre app, ancien `next dev`, etc.),
 
 Le script [`scripts/run-next-dev.mjs`](../../scripts/run-next-dev.mjs) lit ces clés dans chaque `apps/<app>/.env.local` avant de lancer Next.
 
+Réservation **Cal.com** (embed + webhooks + variables) : voir [calcom.md](./calcom.md).
+
 Sur Windows, vous pouvez aussi libérer le port : `Get-NetTCPConnection -LocalPort 3001` puis arrêter le processus concerné.
 
 ### Marketing : Turbopack / Webpack
@@ -61,7 +63,7 @@ Pour réessayer **Turbopack** : définir `MARKETING_TURBOPACK=1` dans l’enviro
 
 ### Backoffice : `proxy.ts` (Next 16)
 
-L’auth Auth0 passe par [`apps/backoffice/proxy.ts`](../../apps/backoffice/proxy.ts) (convention **proxy** à la place de l’ancien `middleware.ts`). Voir [documentation Next.js — middleware to proxy](https://nextjs.org/docs/messages/middleware-to-proxy).
+L’auth Auth0 passe par [`apps/backoffice/proxy.ts`](../../apps/backoffice/proxy.ts) (convention **proxy** à la place de l’ancien `middleware.ts`). Voir [documentation Next.js middleware to proxy](https://nextjs.org/docs/messages/middleware-to-proxy).
 
 ## Stratégie commerciale (bootstrap)
 

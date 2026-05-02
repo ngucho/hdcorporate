@@ -6,7 +6,7 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     question: 'Êtes-vous avocat ?',
-    answer: "Non, je suis juriste indépendant. Mon activité relève du secrétariat juridique, de la rédaction de statuts et des formalités administratives — elle est hors monopole du barreau et parfaitement encadrée par la loi.",
+    answer: "Non, je suis juriste indépendant. Mon activité relève du secrétariat juridique, de la rédaction de statuts et des formalités administratives elle est hors monopole du barreau et parfaitement encadrée par la loi.",
   },
   {
     question: 'Intervenez-vous pour les non-résidents ?',

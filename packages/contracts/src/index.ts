@@ -1,37 +1,7 @@
 /** Shared API contracts (marketing client + public API). */
 
-export interface TimeSlot {
-  id: string
-  time: string
-  available: boolean
-}
-
-export interface BookingRequest {
-  date: string
-  time: string
-  name: string
-  email: string
-  phone?: string
-  company?: string
-  service: string
-  message?: string
-}
-
-export interface BookingResponse {
-  success: boolean
-  bookingId?: string
-  calendarLink?: string
-  error?: string
-}
-
-export interface AvailableSlotsRequest {
-  date: string
-}
-
-export interface AvailableSlotsResponse {
-  slots: TimeSlot[]
-  date: string
-}
+export * from './auth0-claims.js'
+export * from './rbac.js'
 
 export interface ContactRequest {
   name: string

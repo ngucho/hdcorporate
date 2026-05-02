@@ -22,7 +22,8 @@ Le front marketing appelle l’API via **`NEXT_PUBLIC_API_URL`** (origine unique
 - **Build** (exemple ciblé) :  
   `pnpm exec turbo build --filter=@hd-corporate/marketing`  
   `pnpm exec turbo build --filter=@hd-corporate/api`  
-  `pnpm exec turbo build --filter=@hd-corporate/backoffice`
+  `pnpm exec turbo build --filter=@hd-corporate/backoffice`  
+  L’app **`apps/api`** est une API **Hono** modulaire (`src/modules/*`, gateway dans `src/modules/public-gateway.ts` ; `src/index.ts` pour Vercel, `pnpm start` = Node `dist/src/run-local.js` après `tsc`).
 - **Design system / Storybook** : `pnpm storybook` (package `@fondatis/design-system`).
 
 ## Variables d’environnement
@@ -35,7 +36,7 @@ Le front marketing appelle l’API via **`NEXT_PUBLIC_API_URL`** (origine unique
 | `apps/api` | Routes `/api/*` (bookings, leads, contact, services). |
 | `apps/backoffice` | Dashboard, clients, actions serveur. |
 
-`DIRECT_URL` (optionnel) : connexion directe pour `pnpm db:migrate` depuis votre machine — voir [docs/setup/supabase.md](setup/supabase.md).
+`DIRECT_URL` (optionnel) : connexion directe pour `pnpm db:migrate` depuis votre machine voir [docs/setup/supabase.md](setup/supabase.md).
 
 ### Redis Upstash (uniquement `apps/api`)
 
@@ -64,7 +65,7 @@ Le front marketing appelle l’API via **`NEXT_PUBLIC_API_URL`** (origine unique
 | `APP_BASE_URL` | URL canonique du backoffice, ex. **`https://insite.hdcorporate.com`**. |
 | `BACKOFFICE_ALLOWED_EMAILS` | Emails autorisés (séparés par des virgules). Vide = tout utilisateur Auth0 (déconseillé en prod). |
 
-**Auth0 — URLs à déclarer** (adapter aux domaines réels) :
+**Auth0 URLs à déclarer** (adapter aux domaines réels) :
 
 - Callback : `https://insite.hdcorporate.com/auth/callback` (+ `http://localhost:3001/auth/callback` en local).
 - Logout : `https://insite.hdcorporate.com` (+ `http://localhost:3001`).
@@ -99,7 +100,7 @@ Package **`@fondatis/design-system`** : Tailwind 4, primitives type shadcn, icô
 
 ## Performances serverless
 
-- **`apps/api`** : runtime Node.js, Postgres + Redis, en-têtes CORS sur les réponses JSON.
+- **`apps/api`** : **Hono** sur runtime Node.js, Postgres + Redis, CORS (`hono/cors`) sur les routes publiques `/api/*`.
 - Singleton `postgres` dans `@hd-corporate/db`.
 
 ## Stratégie (bootstrap clients, budget limité)

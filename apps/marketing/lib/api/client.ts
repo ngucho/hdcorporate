@@ -4,9 +4,6 @@
 // ============================================
 
 import type {
-  BookingRequest,
-  BookingResponse,
-  AvailableSlotsResponse,
   ContactRequest,
   ContactResponse,
   ServicesResponse,
@@ -99,22 +96,6 @@ class ApiClient {
     return requestPromise
   }
 
-  // ---- Booking Endpoints ----
-  async getAvailableSlots(date: string): Promise<ApiResponse<AvailableSlotsResponse>> {
-    return this.request<AvailableSlotsResponse>(
-      `/booking/slots?date=${encodeURIComponent(date)}`,
-      { method: 'GET' },
-      `slots:${date}`
-    )
-  }
-
-  async createBooking(booking: BookingRequest): Promise<ApiResponse<BookingResponse>> {
-    return this.request<BookingResponse>('/booking', {
-      method: 'POST',
-      body: JSON.stringify(booking),
-    })
-  }
-
   // ---- Contact Endpoints ----
   async submitContact(contact: ContactRequest): Promise<ApiResponse<ContactResponse>> {
     return this.request<ContactResponse>('/contact', {
@@ -144,10 +125,6 @@ class ApiClient {
       cache.clear()
     }
   }
-
-  invalidateSlotsCache(date: string) {
-    cache.delete(`slots:${date}`)
-  }
 }
 
 // Singleton instance
@@ -155,6 +132,5 @@ export const apiClient = new ApiClient()
 
 // Hooks helpers for SWR
 export const fetchers = {
-  slots: (date: string) => apiClient.getAvailableSlots(date).then((r) => r.data),
   services: () => apiClient.getServices().then((r) => r.data),
 }

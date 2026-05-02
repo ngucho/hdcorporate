@@ -11,8 +11,8 @@ const badges = [
         <path d="M3 9h18M9 21V9" />
       </svg>
     ),
-    title: 'Enregistré INPI',
-    subtitle: 'Registre National des Entreprises',
+    title: "Formalités prêtes pour l'administration",
+    subtitle: 'Cabinet enregistré INPI : dossiers et immatriculations rédigés pour limiter les allers-retours.',
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const badges = [
         <path d="M6 12v5c3 3 9 3 12 0v-5" />
       </svg>
     ),
-    title: 'Master M&A',
-    subtitle: 'Université Paris-Saclay',
+    title: "Structuration à la hauteur de l'enjeu",
+    subtitle: 'Formation Master M&A (Paris-Saclay) : pièces et montages pensés comme en société de droit.',
   },
   {
     icon: (
@@ -31,8 +31,8 @@ const badges = [
         <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>
     ),
-    title: 'Multilingue',
-    subtitle: 'Français · Anglais · Wolof',
+    title: 'France, international, à distance',
+    subtitle: 'Français et anglais, comptes rendus clairs pour vos partenaires, banques ou investisseurs.',
   },
   {
     icon: (
@@ -42,14 +42,15 @@ const badges = [
         <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
-    title: 'Réseau CACULF',
-    subtitle: 'Membre actif',
+    title: 'Une pratique connectée aux dirigeants',
+    subtitle:
+      "Membre du Comité d'affaires CACULF : veille et échanges utiles face aux formalités et aux arbitrages.",
   },
 ]
 
 const testimonials = [
   {
-    quote: "Zéro connaissance juridique au départ. Hamidou m'a tout expliqué clairement — structure adaptée, statuts soignés. Ma SASU était opérationnelle en 5 jours.",
+    quote: "Zéro connaissance juridique au départ. Hamidou m'a tout expliqué clairement structure adaptée, statuts soignés. Ma SASU était opérationnelle en 5 jours.",
     name: 'Thomas L.',
     role: 'Développeur freelance, Paris',
     initials: 'TL',

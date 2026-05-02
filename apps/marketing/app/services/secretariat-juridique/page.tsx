@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check, AlertCircle } from 'lucide-react'
+import { BookingCtaLink } from '@/components/hd/booking-cta-link'
 
 export const metadata: Metadata = {
-  title: 'Secrétariat Juridique — Gestion continue de votre société | HD Corporate',
+  title: 'Secrétariat Juridique Gestion continue de votre société | HD Corporate',
   description: 'Externalisez le suivi juridique de votre SAS, SASU ou SARL. PV d\'assemblées, approbation des comptes, conformité légale. 49€/mois, sans engagement.',
 }
 
@@ -37,7 +38,7 @@ const obligations = [
 
 const forWho = [
   { title: 'SAS & SASU', desc: 'Obligations de PV et d\'approbation des comptes, même pour les structures unipersonnelles.' },
-  { title: 'SARL & EURL', desc: 'AGO, dépôt des comptes, rapport de gestion — nous gérons tout le formalisme.' },
+  { title: 'SARL & EURL', desc: 'AGO, dépôt des comptes, rapport de gestion nous gérons tout le formalisme.' },
   { title: 'Holding & groupes', desc: 'Gestion multi-entités avec coordination des assemblées et des obligations.' },
   { title: 'Entreprises sans RH juridique', desc: 'Externalisez sans recruter. Vous gardez la flexibilité, nous apportons l\'expertise.' },
 ]
@@ -57,7 +58,7 @@ const faqs = [
   },
   {
     q: 'Remplacez-vous un expert-comptable ?',
-    a: 'Non. Nous gérons le formalisme juridique — rédaction des actes, PV, convocations. L\'établissement des comptes annuels reste du ressort de votre expert-comptable. Nous collaborons étroitement avec lui pour la partie dépôt des comptes.',
+    a: 'Non. Nous gérons le formalisme juridique rédaction des actes, PV, convocations. L\'établissement des comptes annuels reste du ressort de votre expert-comptable. Nous collaborons étroitement avec lui pour la partie dépôt des comptes.',
   },
   {
     q: 'Que se passe-t-il si je n\'ai pas d\'expert-comptable ?',
@@ -91,7 +92,7 @@ export default function SecretariatJuridiqueePage() {
               <em className="italic text-hd-gold">de votre société</em>
             </h1>
             <p className="text-white/70 text-lg mb-10 max-w-2xl">
-              PV d'assemblées, approbation des comptes, suivi des obligations légales — nous gérons tout le formalisme juridique de votre entreprise. Vous vous concentrez sur votre activité.
+              PV d'assemblées, approbation des comptes, suivi des obligations légales nous gérons tout le formalisme juridique de votre entreprise. Vous vous concentrez sur votre activité.
             </p>
             <div className="flex flex-wrap gap-8 mb-10">
               <div>
@@ -108,13 +109,14 @@ export default function SecretariatJuridiqueePage() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/#booking"
+              <BookingCtaLink
+                serviceSlug="secretariat-annuel"
+                serviceTitle="Secrétariat annuel"
                 className="inline-flex items-center justify-center gap-2 bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
               >
                 Réserver un appel découverte
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </BookingCtaLink>
             </div>
           </div>
         </div>
@@ -214,14 +216,15 @@ export default function SecretariatJuridiqueePage() {
             Un appel de 20 minutes suffit pour faire le point sur vos obligations actuelles et voir comment nous pouvons vous soulager.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/#booking"
-              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors"
+            <BookingCtaLink
+              serviceSlug="secretariat-annuel"
+              serviceTitle="Secrétariat annuel"
+              className="w-full sm:w-auto bg-hd-green text-white px-8 py-4 rounded font-medium hover:bg-hd-green/90 transition-colors text-center"
             >
               Réserver un appel gratuit
-            </a>
+            </BookingCtaLink>
             <Link
-              href="/"
+              href="/#services"
               className="w-full sm:w-auto border-2 border-hd-green text-hd-green px-8 py-4 rounded font-medium hover:bg-hd-green hover:text-white transition-colors text-center"
             >
               Voir toutes les offres

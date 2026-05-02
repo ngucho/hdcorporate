@@ -1,28 +1,19 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
-const skills = [
-  'M&A',
-  'Due Diligence',
-  'Corporate',
-  'LBO',
-  'Private Equity',
-  'SPA',
-  'Droit des sociétés',
-]
+const PROFILE_IMAGE = '/images/hamidou-photo-profil.jpg'
 
-const education = [
-  {
-    years: '2022-2023',
-    title: 'Master Fusions & Acquisitions',
-    institution: 'Université Paris-Saclay',
-  },
-  {
-    years: '2017-2020',
-    title: 'Licence de Droit',
-    institution: 'Université Paris-Saclay',
-  },
+const skills = [
+  'M&A & opérations',
+  'Due diligence',
+  'Corporate & droit des sociétés',
+  'LBO & private equity',
+  'SPA & documentation transactionnelle',
+  'Secrétariat juridique',
+  'Création & structuration de sociétés',
+  'Conseil contractuel',
 ]
 
 export function AboutSection() {
@@ -55,78 +46,60 @@ export function AboutSection() {
       className="bg-hd-cream-dark py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Portrait */}
-          <div className="reveal-left relative" style={{ transitionDelay: '0.2s' }}>
-            <div className="relative aspect-[3/4] bg-hd-green rounded-lg overflow-hidden">
-              {/* Initials */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-serif text-[12rem] lg:text-[16rem] text-hd-gold/10 font-bold select-none">
-                  HD
-                </span>
-              </div>
-
-              {/* Name plate */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-hd-green/90 backdrop-blur-sm border border-hd-gold/20 rounded px-4 py-3">
-                  <p className="text-white text-sm font-medium">Hamidou Diallo</p>
-                  <p className="text-white/60 text-xs">Fondateur · Juriste</p>
-                </div>
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 lg:bottom-8 lg:-right-6">
-                <div className="bg-hd-gold rounded-lg px-4 py-3 text-center shadow-lg">
-                  <span className="font-serif text-2xl text-hd-green font-bold block">2026</span>
-                  <span className="text-xs text-hd-green/80">Fondateur</span>
-                </div>
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,300px)_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[minmax(0,340px)_minmax(0,1fr)]">
+          {/* Portrait : public/images/hamidou-photo-profil.jpg */}
+          <div className="reveal-left mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none" style={{ transitionDelay: '0.2s' }}>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-hd-green shadow-lg ring-1 ring-hd-gold/25">
+              <Image
+                src={PROFILE_IMAGE}
+                alt="Hamidou Diallo, juriste en droit des affaires — fondateur HD Corporate"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 384px, 340px"
+                priority={false}
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-hd-green/90 via-hd-green/40 to-transparent pt-24 pb-5 px-5">
+                <p className="text-white text-sm font-medium tracking-wide">Hamidou Diallo</p>
+                <p className="text-white/75 text-xs mt-0.5">Fondateur · Juriste droit des affaires</p>
               </div>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="reveal-right" style={{ transitionDelay: '0.3s' }}>
-            <span className="text-sm text-hd-green/60 tracking-wide">
-              — Le fondateur
-            </span>
+          {/* Contenu */}
+          <div className="reveal-right min-w-0" style={{ transitionDelay: '0.3s' }}>
+            <span className="text-sm text-hd-green/60 tracking-wide">Votre interlocuteur</span>
 
             <h2 className="font-serif text-3xl md:text-4xl font-light text-hd-green mt-4 mb-6">
-              Hamidou Diallo, juriste en droit des affaires
+              Un juriste tourné vers votre opérationnel
             </h2>
 
             <p className="text-hd-green/80 leading-relaxed mb-6">
-              {"Diplômé d'un Master Fusions & Acquisitions à l'Université Paris-Saclay, j'ai travaillé sur des opérations de M&A et du secrétariat juridique avant de fonder HD Corporate."}
+              {
+                "Hamidou Diallo structure et sécurise vos dossiers sociétaires et transactionnels : formalités, documentation M&A, secrétariat juridique et accompagnement des dirigeants qui n'ont pas le temps d'apprendre le jargon."
+              }
             </p>
             <p className="text-hd-green/80 leading-relaxed mb-6">
-              {"Ma conviction ? Que vous soyez dirigeant d'une PME française, fondateur de startup, freelance en plein essor, ou entrepreneur bâtissant entre plusieurs pays — vous méritez un accompagnement juridique rigoureux, à un tarif juste et transparent."}
+              {
+                "Notre conviction : en tant que dirigeant de PME, fondateur, freelance ou entrepreneur à l'international, vous méritez un interlocuteur qui livre des pièces exploitables, des délais annoncés et des tarifs transparents — sans vous faire sentir « trop petit » pour un cabinet."
+              }
             </p>
             <p className="text-hd-green/80 leading-relaxed mb-8">
-              {"Issu de la diaspora sénégalaise, j'ai fondé HD Corporate pour tous ceux que le marché du conseil juridique traditionnel laisse de côté. Un cabinet accessible, humain, et tourné vers votre réussite — en France comme à l'international."}
+              {
+                "HD Corporate existe pour celles et ceux que le conseil traditionnel met trop cher ou trop loin : une pratique méthodique, humaine, orientée conformité et sérénité, en France comme à l'international."
+              }
             </p>
 
-            {/* Skills */}
-            <div className="flex flex-wrap gap-2 mb-10">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-hd-green/55 mb-3">
+              Domaines d&apos;expertise
+            </h3>
+            <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="text-xs border border-hd-green/30 text-hd-green px-3 py-1.5 rounded"
+                  className="text-xs border border-hd-green/30 bg-white/40 text-hd-green px-3 py-1.5 rounded"
                 >
                   {skill}
                 </span>
-              ))}
-            </div>
-
-            {/* Education */}
-            <div className="space-y-4">
-              {education.map((item) => (
-                <div
-                  key={item.title}
-                  className="border-l-2 border-hd-gold pl-4"
-                >
-                  <p className="text-xs text-hd-green/50 mb-1">{item.years}</p>
-                  <p className="text-sm font-medium text-hd-green">{item.title}</p>
-                  <p className="text-xs text-hd-green/60">{item.institution}</p>
-                </div>
               ))}
             </div>
           </div>

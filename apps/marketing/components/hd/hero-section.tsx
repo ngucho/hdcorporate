@@ -71,7 +71,7 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <p className="reveal font-sans text-base lg:text-lg font-light text-white/65 max-w-2xl mb-12" style={{ transitionDelay: '0.75s' }}>
-          Freelance, startup, PME ou entrepreneur à l'international — créez votre société (SAS, SASU, LLC Delaware)
+          Freelance, startup, PME ou entrepreneur à l'international créez votre société (SAS, SASU, LLC Delaware)
           et sécurisez vos opérations avec un juriste dédié à votre réussite.
         </p>
 
@@ -81,7 +81,7 @@ export function HeroSection() {
             onClick={() => scrollToSection('services')}
             className="bg-hd-gold text-hd-green px-8 py-4 text-sm font-medium rounded hover:bg-hd-gold/90 transition-colors"
           >
-            Créer ma société — dès 299€
+            Créer ma société dès 299€
           </button>
           <button
             onClick={() => scrollToSection('booking')}

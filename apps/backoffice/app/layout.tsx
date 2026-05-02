@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'HD Corporate — Backoffice',
+  title: 'HD Corporate Backoffice',
   description: 'Gestion interne clients, reçus et demandes.',
 }
 

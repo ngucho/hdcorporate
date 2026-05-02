@@ -7,10 +7,17 @@ __v0_jsx-dev-runtime.ts
 .vercel/
 next.user-config.*
 
-# Environment variables
+# Environment variables (never commit real secrets)
 .env*.local
 .env
+.env.production
+.env.development
 packages/db/.env
+
+# Keys & certificates
+*.pem
+*.p12
+*.key
 
 # Common ignores
 node_modules
