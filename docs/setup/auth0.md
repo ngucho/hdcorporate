@@ -2,6 +2,8 @@
 
 Le backoffice [`apps/backoffice`](../../apps/backoffice) utilise **`@auth0/nextjs-auth0`** avec une application Auth0 de type **Regular Web Application** (flux navigateur + cookies de session).
 
+Les routes **`/signin`** et **`/signup`** affichent un écran interne (logo, rappel juridique) **avant** la redirection vers Auth0 (`/auth/login` et `/auth/login?screen_hint=signup`). Aucun rôle backoffice n’est accordé automatiquement : après Auth0, l’accès reste conditionné par `BACKOFFICE_ALLOWED_EMAILS` (sinon redirection vers `/forbidden`).
+
 ## 1. Créer une application Auth0
 
 1. Dashboard [https://manage.auth0.com](https://manage.auth0.com) → **Applications** → **Create Application**.

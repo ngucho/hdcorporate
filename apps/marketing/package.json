@@ -6,7 +6,8 @@
     "dev": "node ../../scripts/run-next-dev.mjs marketing",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "generate:brand": "node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -65,6 +66,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "sharp": "^0.34.2",
     "@tailwindcss/postcss": "^4.2.0",
     "@types/node": "^22",
     "@types/react": "^19",
