@@ -1,12 +1,30 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { BookingCtaLink } from '@/components/hd/booking-cta-link'
+import { JsonLd } from '@/components/seo/json-ld'
+import { buildPageMetadata } from '@/lib/seo/build-metadata'
+import { breadcrumbJsonLd, serviceJsonLd } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'Pack Création France SAS, SASU, EURL dès 299€ | HD Corporate',
-  description: 'Créez votre SAS, SASU ou EURL en 3 à 5 jours ouvrés. Statuts sur-mesure, immatriculation INPI, annonce légale incluse. Accompagnement personnalisé par un juriste spécialisé.',
-}
+const PAGE_DESC =
+  'Créez votre SAS, SASU ou EURL en 3 à 5 jours ouvrés. Statuts sur-mesure, immatriculation INPI, annonce légale incluse. Accompagnement personnalisé par un juriste spécialisé.'
+
+export const metadata = buildPageMetadata({
+  path: '/services/creation-france',
+  title: 'Pack Création France SAS, SASU, EURL dès 299€',
+  description: PAGE_DESC,
+  keywords: [
+    'création SAS',
+    'création SASU',
+    'création EURL',
+    'statuts sur mesure',
+    'INPI',
+    'guichet unique',
+    'annonce légale',
+    'immatriculation société',
+    'Kbis',
+    '299 euros',
+  ],
+})
 
 const includes = [
   'Rédaction des statuts sur-mesure (SAS, SASU, EURL ou SARL)',
@@ -81,6 +99,20 @@ const faqs = [
 export default function CreationFrancePage() {
   return (
     <div className="pt-[calc(5rem+env(safe-area-inset-top))]">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Accueil', path: '/' },
+          { name: 'Pack Création France', path: '/services/creation-france' },
+        ])}
+      />
+      <JsonLd
+        data={serviceJsonLd({
+          name: 'Pack Création France — SAS, SASU, EURL',
+          description: PAGE_DESC,
+          path: '/services/creation-france',
+          offerDescription: 'Formule création société à partir de 299 € TTC',
+        })}
+      />
       {/* Breadcrumb */}
       <div className="bg-hd-green/5 border-b border-hd-green/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">

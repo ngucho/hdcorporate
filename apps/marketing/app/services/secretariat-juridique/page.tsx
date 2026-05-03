@@ -1,12 +1,29 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check, AlertCircle } from 'lucide-react'
 import { BookingCtaLink } from '@/components/hd/booking-cta-link'
+import { JsonLd } from '@/components/seo/json-ld'
+import { buildPageMetadata } from '@/lib/seo/build-metadata'
+import { breadcrumbJsonLd, serviceJsonLd } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'Secrétariat Juridique Gestion continue de votre société | HD Corporate',
-  description: 'Externalisez le suivi juridique de votre SAS, SASU ou SARL. PV d\'assemblées, approbation des comptes, conformité légale. 49€/mois, sans engagement.',
-}
+const PAGE_DESC =
+  "Externalisez le suivi juridique de votre SAS, SASU ou SARL. PV d'assemblées, approbation des comptes, conformité légale. 49€/mois, sans engagement."
+
+export const metadata = buildPageMetadata({
+  path: '/services/secretariat-juridique',
+  title: 'Secrétariat juridique — gestion continue de société',
+  description: PAGE_DESC,
+  keywords: [
+    'secrétariat juridique',
+    'PV assemblée générale',
+    'comptes annuels',
+    'conformité société',
+    'SAS',
+    'SASU',
+    'SARL',
+    'abonnement juridique',
+    '49 euros par mois',
+  ],
+})
 
 const includes = [
   'PV d\'assemblées générales ordinaires (AGO annuelle)',
@@ -73,6 +90,20 @@ const faqs = [
 export default function SecretariatJuridiqueePage() {
   return (
     <div className="pt-[calc(5rem+env(safe-area-inset-top))]">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Accueil', path: '/' },
+          { name: 'Secrétariat juridique', path: '/services/secretariat-juridique' },
+        ])}
+      />
+      <JsonLd
+        data={serviceJsonLd({
+          name: 'Secrétariat juridique pour SAS, SASU et SARL',
+          description: PAGE_DESC,
+          path: '/services/secretariat-juridique',
+          offerDescription: 'Forfait secrétariat juridique à partir de 49 € / mois',
+        })}
+      />
       {/* Breadcrumb */}
       <div className="bg-hd-green/5 border-b border-hd-green/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">

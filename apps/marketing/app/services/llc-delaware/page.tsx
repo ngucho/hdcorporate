@@ -1,12 +1,29 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { BookingCtaLink } from '@/components/hd/booking-cta-link'
+import { JsonLd } from '@/components/seo/json-ld'
+import { buildPageMetadata } from '@/lib/seo/build-metadata'
+import { breadcrumbJsonLd, serviceJsonLd } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'LLC Delaware Créez votre société US depuis la France | HD Corporate',
-  description: 'Créez votre LLC aux États-Unis depuis la France ou l\'Afrique. EIN, Registered Agent 1 an, compte bancaire US (Mercury/Relay), accompagnement Stripe. 599€ tout inclus.',
-}
+const PAGE_DESC =
+  "Créez votre LLC aux États-Unis depuis la France ou l'Afrique. EIN, Registered Agent 1 an, compte bancaire US (Mercury/Relay), accompagnement Stripe. 599€ tout inclus."
+
+export const metadata = buildPageMetadata({
+  path: '/services/llc-delaware',
+  title: 'LLC Delaware — société US depuis la France',
+  description: PAGE_DESC,
+  keywords: [
+    'LLC Delaware',
+    'société américaine',
+    'EIN',
+    'Registered Agent',
+    'Mercury',
+    'Relay',
+    'Stripe',
+    'entreprise USA',
+    '599 euros',
+  ],
+})
 
 const includes = [
   'Dépôt des Articles of Organization (État du Delaware)',
@@ -81,6 +98,20 @@ const faqs = [
 export default function LlcDelawarePage() {
   return (
     <div className="pt-[calc(5rem+env(safe-area-inset-top))]">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Accueil', path: '/' },
+          { name: 'LLC Delaware', path: '/services/llc-delaware' },
+        ])}
+      />
+      <JsonLd
+        data={serviceJsonLd({
+          name: 'LLC Delaware — accompagnement création société US',
+          description: PAGE_DESC,
+          path: '/services/llc-delaware',
+          offerDescription: 'Pack LLC Delaware tout inclus à partir de 599 € TTC',
+        })}
+      />
       {/* Breadcrumb */}
       <div className="bg-hd-green/5 border-b border-hd-green/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">

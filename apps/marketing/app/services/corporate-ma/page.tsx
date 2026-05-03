@@ -1,12 +1,30 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { BookingCtaLink } from '@/components/hd/booking-cta-link'
+import { JsonLd } from '@/components/seo/json-ld'
+import { buildPageMetadata } from '@/lib/seo/build-metadata'
+import { breadcrumbJsonLd, serviceJsonLd } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'Corporate & M&A Accompagnement juridique stratégique | HD Corporate',
-  description: 'NDA, LOI, SPA, due diligence, pacte d\'associés, augmentation de capital. Accompagnement juridique sur-mesure pour vos opérations de croissance et de cession. Sur devis.',
-}
+const PAGE_DESC =
+  "NDA, LOI, SPA, due diligence, pacte d'associés, augmentation de capital. Accompagnement juridique sur-mesure pour vos opérations de croissance et de cession. Sur devis."
+
+export const metadata = buildPageMetadata({
+  path: '/services/corporate-ma',
+  title: 'Corporate & M&A — accompagnement juridique stratégique',
+  description: PAGE_DESC,
+  keywords: [
+    'corporate',
+    'M&A',
+    'due diligence',
+    'NDA',
+    'LOI',
+    'SPA',
+    'pacte associés',
+    'augmentation de capital',
+    'cession société',
+    'juriste M&A',
+  ],
+})
 
 const services = [
   {
@@ -82,6 +100,20 @@ const faqs = [
 export default function CorporateMaPage() {
   return (
     <div className="pt-[calc(5rem+env(safe-area-inset-top))]">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Accueil', path: '/' },
+          { name: 'Corporate & M&A', path: '/services/corporate-ma' },
+        ])}
+      />
+      <JsonLd
+        data={serviceJsonLd({
+          name: 'Corporate & M&A — missions juridiques sur devis',
+          description: PAGE_DESC,
+          path: '/services/corporate-ma',
+          offerDescription: 'Devis sur brief — NDA, LOI, due diligence, SPA, pacte d’associés',
+        })}
+      />
       {/* Breadcrumb */}
       <div className="bg-hd-green/5 border-b border-hd-green/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">

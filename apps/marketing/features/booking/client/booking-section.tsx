@@ -58,7 +58,7 @@ export function BookingSection() {
             style={calLink ? undefined : { transitionDelay: '0.3s' }}
           >
             {calLink ? (
-              <div className="-mx-4 w-[calc(100%+2rem)] min-w-0 sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full">
+              <div className="w-full min-w-0">
                 <CalcomEmbed calLink={calLink} />
               </div>
             ) : (
