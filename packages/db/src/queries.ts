@@ -121,6 +121,7 @@ export async function updateCalcomBookingByProviderUid(
     name?: string
     email?: string
     phone?: string | null
+    company?: string | null
     service?: string
     message?: string | null
     calendarLink?: string

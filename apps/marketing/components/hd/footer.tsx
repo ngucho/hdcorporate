@@ -102,9 +102,12 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <span className="text-white/40 text-sm cursor-default">
+                <Link
+                  href="/mentions-legales"
+                  className="inline-flex min-h-11 w-full items-center rounded-sm py-2.5 text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-hd-gold md:min-h-0 md:w-auto md:py-0 md:hover:bg-transparent"
+                >
                   Mentions légales
-                </span>
+                </Link>
               </li>
             </ul>
           </div>
