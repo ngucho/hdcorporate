@@ -13,6 +13,20 @@ function readResponseString(responses: unknown, key: string): string | undefined
   return undefined
 }
 
+/**
+ * Cal.com envoie les champs du formulaire dans `responses.{clé}.value`.
+ * Ordre pour la société (première valeur non vide) : `company` → `organisation` → `organization`.
+ */
+function extractCompanyFromResponses(responses: unknown): string | null {
+  if (!responses || typeof responses !== 'object') return null
+  const rec = responses as Record<string, unknown>
+  for (const key of ['company', 'organisation', 'organization'] as const) {
+    const s = readResponseString(rec, key)?.trim()
+    if (s) return s
+  }
+  return null
+}
+
 /** Date locale `YYYY-MM-DD` et heure `HH:mm` pour affichage / grille interne. */
 export function splitBookingStartInTimezone(
   isoStart: string,
@@ -83,6 +97,7 @@ export function mapCalcomPayloadToBookingInput(payload: CalcomBookingPayload): {
   name: string
   email: string
   phone: string | null
+  company: string | null
   service: string
   message: string | null
   calendarLink: string
@@ -124,6 +139,8 @@ export function mapCalcomPayloadToBookingInput(payload: CalcomBookingPayload): {
 
   const calendarLink = extractVideoCallUrl(payload as Record<string, unknown>) || 'https://cal.com'
 
+  const company = extractCompanyFromResponses(payload.responses)
+
   const metadata: Record<string, unknown> = {
     calcomUid: uid,
     endTime: payload.endTime,
@@ -137,6 +154,7 @@ export function mapCalcomPayloadToBookingInput(payload: CalcomBookingPayload): {
     name,
     email,
     phone,
+    company,
     service,
     message,
     calendarLink,

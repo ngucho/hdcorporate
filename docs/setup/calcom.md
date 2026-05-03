@@ -16,6 +16,16 @@ L’iframe Cal.com **pilote l’UI** (mois, semaine, colonnes, grille des horair
 2. **Appearance** / **Booking questions** (ou **Advanced**) : disposition du booker (**Column** / côte à côte calendrier + créneaux) alignée avec l’embed marketing qui envoie déjà `layout: column_view` (`column_view` côté SDK).
 3. **Calendrier à gauche, horaires à droite** : en dessous d’environ **800px** de largeur iframe, Cal.com repasse souvent en **pile** (calendrier puis créneaux en bas). L’embed impose **`min-w-[800px]`** (avec **`overflow-x-auto`** sur le parent) pour garder la disposition colonne, et envoie **`useSlotsViewOnSmallScreen: 'false'`** lorsque le script Cal le prend en charge. **`max-w` ~880px** limite encore l’affichage **deux jours** côte à côte dans le panneau créneaux ; ajuste min/max dans `calcom-embed.tsx` selon ton compromis. Tu peux aussi tester **`month_view`** à la place de `column_view`.
 
+### Pas de préremplissage nom / email depuis le site
+
+Le front marketing **n’envoie pas** d’objet `prefill` à l’embed (`calcom-embed.tsx`) : les champs du booker sont donc remplis uniquement par **Cal.com** (questions de réservation, valeurs par défaut de l’événement), le **profil connecté** sur cal.com si l’utilisateur est déjà authentifié dans l’iframe, et l’**autofill du navigateur** (y compris en navigation privée selon le navigateur).
+
+Pour obtenir un formulaire « vide » ou éviter des valeurs indésirables :
+
+1. Vérifier dans Cal.com (**Booking questions** / champs personnalisés) qu’il n’y a pas de valeur par défaut sur nom / email.
+2. Tester en navigation privée et, si besoin, désactiver l’autocomplétion côté navigateur pour ce domaine.
+3. Ne pas compter sur une option embed non documentée : si la doc officielle `@calcom/embed-react` pour ta version expose une option sûre pour forger des champs vides, tu peux l’ajouter au `config` ; sinon rester sur les réglages Cal + navigateur.
+
 Si le rendu ne suffit pas, la voie officielle est d’ouvrir une **demande de fonctionnalité** côté Cal.com ou d’utiliser leur **Booker** programmatique (atoms) dans un autre front, hors embed script actuel.
 
 ## 2. Webhook (HTTPS obligatoire sur Cal SaaS)

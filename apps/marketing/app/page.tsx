@@ -10,6 +10,7 @@ import { BookingSection } from '@/features/booking/client'
 import { TrustSection } from '@/components/hd/trust-section'
 import { FAQSection } from '@/components/hd/faq-section'
 import { CTASection } from '@/components/hd/cta-section'
+import { ContactSection } from '@/components/hd/contact-section'
 import { Footer } from '@/components/hd/footer'
 import { getPublishedServicesForHome } from '@/lib/cached-services'
 
@@ -53,6 +54,7 @@ export default function HDCorporate() {
         <BookingSection />
         <TrustSection />
         <FAQSection />
+        <ContactSection />
         <CTASection />
       </main>
 

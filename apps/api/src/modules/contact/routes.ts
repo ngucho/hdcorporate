@@ -38,8 +38,14 @@ export function createContactRouter(): Hono<AppEnv> {
           subject: body.subject,
           message: body.message,
         })
-      } catch {
-        // continue with synthetic ticket id if DB unavailable
+      } catch (err) {
+        c.get('log').error({ err, ticketId }, 'contact_insert_failed')
+        const error: ApiError = {
+          code: 'storage_unavailable',
+          message:
+            'Impossible d’enregistrer votre message pour le moment. Réessayez plus tard ou écrivez-nous par email.',
+        }
+        return c.json(error, 503)
       }
 
       const response: ContactResponse = {
