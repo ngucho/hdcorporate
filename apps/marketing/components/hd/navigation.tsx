@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { scrollToId } from '@/lib/scroll-to-id'
 import { Menu, X, ChevronDown } from 'lucide-react'
@@ -51,9 +52,18 @@ export function Navigation() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 min-h-[5rem] items-center justify-between gap-3">
             {/* Logo */}
-            <Link href="/" className="flex shrink-0 items-baseline gap-1 group">
-              <span className="font-serif text-2xl font-bold text-hd-gold">HD</span>
-              <span className="font-sans text-lg font-light text-white">Corporate</span>
+            <Link href="/" className="group flex shrink-0 items-center gap-2.5">
+              <Image
+                src="/icon/splash-mark.png"
+                alt=""
+                width={40}
+                height={40}
+                className="h-9 w-9 shrink-0 rounded-sm object-contain"
+              />
+              <span className="flex items-baseline gap-1">
+                <span className="font-serif text-2xl font-bold text-hd-gold">HD</span>
+                <span className="font-sans text-lg font-light text-white">Corporate</span>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -146,9 +156,18 @@ export function Navigation() {
         <div className="fixed inset-0 z-[60] bg-hd-green mobile-menu-open overflow-y-auto overscroll-y-contain pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
           <div className="flex min-h-full flex-col px-4 pb-4 pt-2 sm:px-6">
             <div className="flex justify-between items-center mb-12">
-              <Link href="/" className="flex items-baseline gap-1" onClick={() => setIsMobileMenuOpen(false)}>
-                <span className="font-serif text-2xl font-bold text-hd-gold">HD</span>
-                <span className="font-sans text-lg font-light text-white">Corporate</span>
+              <Link href="/" className="flex items-center gap-2.5" onClick={() => setIsMobileMenuOpen(false)}>
+                <Image
+                  src="/icon/splash-mark.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-9 w-9 shrink-0 rounded-sm object-contain"
+                />
+                <span className="flex items-baseline gap-1">
+                  <span className="font-serif text-2xl font-bold text-hd-gold">HD</span>
+                  <span className="font-sans text-lg font-light text-white">Corporate</span>
+                </span>
               </Link>
               <button
                 type="button"

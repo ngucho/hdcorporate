@@ -15,7 +15,7 @@ export default async function ProtectedLayout({
 }) {
   const session = await auth0.getSession()
   if (!session) {
-    redirect('/auth/login')
+    redirect('/signin')
   }
   if (!assertStaffEmail(session)) {
     redirect('/forbidden')
