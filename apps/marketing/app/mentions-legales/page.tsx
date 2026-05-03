@@ -1,18 +1,38 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Navigation } from '@/components/hd/navigation'
 import { Footer } from '@/components/hd/footer'
 import { HomeChrome } from '@/components/hd/home-chrome'
+import { JsonLd } from '@/components/seo/json-ld'
+import { buildLegalPageMetadata } from '@/lib/seo/build-metadata'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'Mentions légales | HD Corporate',
-  description: 'Informations légales relatives au site HD Corporate (à compléter).',
-}
+const PAGE_DESC =
+  'Mentions légales du site HD Corporate : éditeur, hébergement, propriété intellectuelle et données personnelles (contenu à compléter).'
+
+export const metadata = buildLegalPageMetadata({
+  path: '/mentions-legales',
+  title: 'Mentions légales',
+  description: PAGE_DESC,
+  keywords: ['mentions légales', 'HD Corporate', 'SIREN', 'RGPD', 'éditeur du site'],
+})
 
 /** Contenu placeholder : à adapter avec vos données réelles (pas de conseil juridique automatisé). */
 export default function MentionsLegalesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Accueil', path: '/' },
+          { name: 'Mentions légales', path: '/mentions-legales' },
+        ])}
+      />
+      <JsonLd
+        data={webPageJsonLd({
+          name: 'Mentions légales — HD Corporate',
+          description: PAGE_DESC,
+          path: '/mentions-legales',
+        })}
+      />
       <HomeChrome />
       <Navigation />
       <main className="min-w-0 bg-hd-cream pb-24 pt-8">
